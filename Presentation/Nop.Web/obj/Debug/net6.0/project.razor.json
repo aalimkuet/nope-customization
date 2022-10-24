@@ -20485,6 +20485,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Themes\\MyTheme\\Views\\Shared\\Components\\TopMenu\\Default.cshtml",
+      "TargetPath": "Themes\\MyTheme\\Views\\Shared\\Components\\TopMenu\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Views\\Catalog\\_FilterPriceBox.cshtml",
       "TargetPath": "Views\\Catalog\\_FilterPriceBox.cshtml",
       "FileKind": "mvc"
@@ -20552,6 +20557,11 @@
     {
       "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Views\\Blog\\Components\\BlogMonths\\Default.cshtml",
       "TargetPath": "Views\\Blog\\Components\\BlogMonths\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Themes\\MyTheme\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Themes\\MyTheme\\Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -22770,6 +22780,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Themes\\MyTheme\\Views\\Shared\\Components\\Footer\\Default.cshtml",
+      "TargetPath": "Themes\\MyTheme\\Views\\Shared\\Components\\Footer\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Areas\\Admin\\Views\\Discount\\_CreateOrUpdate.AppliedToCategories.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Discount\\_CreateOrUpdate.AppliedToCategories.cshtml",
       "FileKind": "mvc"
@@ -23027,6 +23042,11 @@
     {
       "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Views\\Checkout\\OpcPaymentMethods.cshtml",
       "TargetPath": "Views\\Checkout\\OpcPaymentMethods.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Themes\\MyTheme\\Views\\_Header.cshtml",
+      "TargetPath": "Themes\\MyTheme\\Views\\_Header.cshtml",
       "FileKind": "mvc"
     },
     {
