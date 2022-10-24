@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Qe5vidEGG1SlM76bj6jxtSC96iVAmyq0Z/nOIDLIcugNIGlJrvheetZxHrvtnzYlaXY11Oi+HcVaieZyvb7BbA==",
+  "dgSpecHash": "sza2XW1FsGGfCFl/rwYcCTtHsUnbk4VMGxkyqrloS+CCxDZqtIRjQjqm+s2r3yLamr6ZpLAE2LiIQWJ0HK/4eg==",
   "success": true,
-  "projectFilePath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Misc.Sendinblue\\Nop.Plugin.Misc.Sendinblue.csproj",
+  "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Misc.Sendinblue\\Nop.Plugin.Misc.Sendinblue.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BS1054\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

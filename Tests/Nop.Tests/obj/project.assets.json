@@ -15265,11 +15265,11 @@
   "project": {
     "version": "4.5.0",
     "restore": {
-      "projectUniqueName": "D:\\BS23\\nopCommerce_4.50.4_Source\\Tests\\Nop.Tests\\Nop.Tests.csproj",
+      "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Tests\\Nop.Tests\\Nop.Tests.csproj",
       "projectName": "Nop.Tests",
-      "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Tests\\Nop.Tests\\Nop.Tests.csproj",
+      "projectPath": "D:\\BS23\\nopCommerce_v1\\Tests\\Nop.Tests\\Nop.Tests.csproj",
       "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-      "outputPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Tests\\Nop.Tests\\obj\\",
+      "outputPath": "D:\\BS23\\nopCommerce_v1\\Tests\\Nop.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -15286,17 +15286,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\BS23\\nopCommerce_4.50.4_Source\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-              "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Libraries\\Nop.Core\\Nop.Core.csproj"
+            "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+              "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj"
             },
-            "D:\\BS23\\nopCommerce_4.50.4_Source\\Libraries\\Nop.Services\\Nop.Services.csproj": {
-              "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Libraries\\Nop.Services\\Nop.Services.csproj"
+            "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+              "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Services\\Nop.Services.csproj"
             },
-            "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-              "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+            "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+              "projectPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
             },
-            "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\Nop.Web.csproj": {
-              "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\Nop.Web.csproj"
+            "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Nop.Web.csproj": {
+              "projectPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Nop.Web.csproj"
             }
           }
         }

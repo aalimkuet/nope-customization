@@ -14240,11 +14240,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Payments.PayPalCommerce\\Nop.Plugin.Payments.PayPalCommerce.csproj",
+      "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Payments.PayPalCommerce\\Nop.Plugin.Payments.PayPalCommerce.csproj",
       "projectName": "Nop.Plugin.Payments.PayPalCommerce",
-      "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Payments.PayPalCommerce\\Nop.Plugin.Payments.PayPalCommerce.csproj",
+      "projectPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Payments.PayPalCommerce\\Nop.Plugin.Payments.PayPalCommerce.csproj",
       "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-      "outputPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Payments.PayPalCommerce\\obj\\",
+      "outputPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Payments.PayPalCommerce\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -14261,8 +14261,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\Nop.Web.csproj": {
-              "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\Nop.Web.csproj"
+            "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Nop.Web.csproj": {
+              "projectPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Nop.Web.csproj"
             }
           }
         }

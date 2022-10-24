@@ -14396,11 +14396,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Misc.Sendinblue\\Nop.Plugin.Misc.Sendinblue.csproj",
+      "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Misc.Sendinblue\\Nop.Plugin.Misc.Sendinblue.csproj",
       "projectName": "Nop.Plugin.Misc.Sendinblue",
-      "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Misc.Sendinblue\\Nop.Plugin.Misc.Sendinblue.csproj",
+      "projectPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Misc.Sendinblue\\Nop.Plugin.Misc.Sendinblue.csproj",
       "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-      "outputPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Misc.Sendinblue\\obj\\",
+      "outputPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Misc.Sendinblue\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -14417,8 +14417,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-              "projectPath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+            "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+              "projectPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
             }
           }
         }

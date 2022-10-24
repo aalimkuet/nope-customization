@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5cpcQMRqF4eCuY3wSfz0Bc0kvwFzwAnHqkjVEDV1GK1B4wsY4BH7AbHEVTtR9r/ugTCbo3FcXsvx7lmZjzzsXw==",
+  "dgSpecHash": "4ZDirqvMI2CWDmugKlWQ4ZfNj7xxovCQGSiyhYz3Xhsx29boQtiY6M9inKDLLKyZXzl78w3mFrsZUmqPDsnncQ==",
   "success": true,
-  "projectFilePath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj",
+  "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BS1054\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

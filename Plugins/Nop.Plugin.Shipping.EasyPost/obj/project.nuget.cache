@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fKSepKRwqGGo20DftCgdPH90/JKGx6IIe5w44T5KED6c+6h7vetpFaPZoIvE/irPMojf/YIhR37/olTRpH8bDg==",
+  "dgSpecHash": "5kZA0lqhaAl2v/lrjBXPSnlRKaAYpCgmNrNSKqf24/GCahte8j7Lb86FPkyma1RCrktfI4DczYklMQoM4suwGg==",
   "success": true,
-  "projectFilePath": "D:\\BS23\\nopCommerce_4.50.4_Source\\Plugins\\Nop.Plugin.Shipping.EasyPost\\Nop.Plugin.Shipping.EasyPost.csproj",
+  "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Shipping.EasyPost\\Nop.Plugin.Shipping.EasyPost.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BS1054\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
