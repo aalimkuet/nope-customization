@@ -21790,6 +21790,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Themes\\MyTheme\\Views\\Shared\\Components\\HeaderLinks\\Default.cshtml",
+      "TargetPath": "Themes\\MyTheme\\Views\\Shared\\Components\\HeaderLinks\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Areas\\Admin\\Views\\Setting\\_Vendor.Common.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\Setting\\_Vendor.Common.cshtml",
       "FileKind": "mvc"

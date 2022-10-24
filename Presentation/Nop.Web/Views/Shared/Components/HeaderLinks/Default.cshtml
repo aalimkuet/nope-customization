@@ -6,12 +6,9 @@
     <ul>
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksBefore, additionalData = Model })
 
-        <li>
-            @*<a href="https://www.google.com/" target="_blank">
-                Google
-            </a>*@
+        @*<li>             
              <a href="https://www.google.com/" target="_blank">@T("my.link")</a> 
-        </li>
+        </li>*@
 
 
         @if (Model.IsAuthenticated)
