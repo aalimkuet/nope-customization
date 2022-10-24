@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T/0EO0M1co+BKHrI7S4nEVJwe/eQDTmAeL3WdjF182I=",
+  "Hash": "TgTQZJ2RZFIeZx5XXqMBn7u9+tA9gTb3m415FCqSeRE=",
   "Source": "Nop.Web",
   "BasePath": "_content/Nop.Web",
   "Mode": "Default",
@@ -9962,6 +9962,23 @@
       "OriginalItemSpec": "wwwroot\\images\\thumbs\\0000029_hp-spectre-xt-pro-ultrabook_200.jpeg"
     },
     {
+      "Identity": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\wwwroot\\images\\thumbs\\0000030_hp-envy-6-1180ca-156-inch-sleekbook.jpeg",
+      "SourceId": "Nop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\wwwroot\\",
+      "BasePath": "_content/Nop.Web",
+      "RelativePath": "images/thumbs/0000030_hp-envy-6-1180ca-156-inch-sleekbook.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\thumbs\\0000030_hp-envy-6-1180ca-156-inch-sleekbook.jpeg"
+    },
+    {
       "Identity": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\wwwroot\\images\\thumbs\\0000030_hp-envy-6-1180ca-156-inch-sleekbook_200.jpeg",
       "SourceId": "Nop.Web",
       "SourceType": "Discovered",
@@ -9977,6 +9994,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\thumbs\\0000030_hp-envy-6-1180ca-156-inch-sleekbook_200.jpeg"
+    },
+    {
+      "Identity": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\wwwroot\\images\\thumbs\\0000030_hp-envy-6-1180ca-156-inch-sleekbook_415.jpeg",
+      "SourceId": "Nop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\wwwroot\\",
+      "BasePath": "_content/Nop.Web",
+      "RelativePath": "images/thumbs/0000030_hp-envy-6-1180ca-156-inch-sleekbook_415.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\thumbs\\0000030_hp-envy-6-1180ca-156-inch-sleekbook_415.jpeg"
     },
     {
       "Identity": "D:\\BS23\\nopCommerce_4.50.4_Source\\Presentation\\Nop.Web\\wwwroot\\images\\thumbs\\0000030_hp-envy-6-1180ca-156-inch-sleekbook_75.jpeg",

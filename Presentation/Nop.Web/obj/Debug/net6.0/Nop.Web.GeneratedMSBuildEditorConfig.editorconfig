@@ -2918,3 +2918,11 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/BS23/nopCommerce_4.50.4_Source/Presentation/Nop.Web/Themes/DefaultClean/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VGhlbWVzXERlZmF1bHRDbGVhblxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BS23/nopCommerce_4.50.4_Source/Presentation/Nop.Web/Themes/MyTheme/Views/Shared/Head.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VGhlbWVzXE15VGhlbWVcVmlld3NcU2hhcmVkXEhlYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BS23/nopCommerce_4.50.4_Source/Presentation/Nop.Web/Themes/MyTheme/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VGhlbWVzXE15VGhlbWVcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 

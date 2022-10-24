@@ -5,6 +5,15 @@
 <div class="header-links">
     <ul>
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksBefore, additionalData = Model })
+
+        <li>
+            @*<a href="https://www.google.com/" target="_blank">
+                Google
+            </a>*@
+             <a href="https://www.google.com/" target="_blank">@T("my.link")</a> 
+        </li>
+
+
         @if (Model.IsAuthenticated)
         {
             <li><a href="@Url.RouteUrl("CustomerInfo")" class="ico-account">@T("Account.MyAccount")@*@Model.CustomerName*@</a></li>
@@ -13,8 +22,8 @@
         else
         {
             var returnUrl = Context.Request.Query.TryGetValue("returnUrl", out var url) && !StringValues.IsNullOrEmpty(url)
-                ? url.ToString()
-                : webHelper.GetRawUrl(Context.Request);
+            ? url.ToString()
+            : webHelper.GetRawUrl(Context.Request);
 
             @if (Model.RegistrationType != UserRegistrationType.Disabled)
             {
