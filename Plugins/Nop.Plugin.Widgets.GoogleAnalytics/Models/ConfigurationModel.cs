@@ -6,7 +6,7 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics.Models
     public record ConfigurationModel : BaseNopModel
     {
         public int ActiveStoreScopeConfiguration { get; set; }
-        
+
         [NopResourceDisplayName("Plugins.Widgets.GoogleAnalytics.GoogleId")]
         public string GoogleId { get; set; }
         public bool GoogleId_OverrideForStore { get; set; }
@@ -22,7 +22,7 @@ namespace Nop.Plugin.Widgets.GoogleAnalytics.Models
         [NopResourceDisplayName("Plugins.Widgets.GoogleAnalytics.TrackingScript")]
         public string TrackingScript { get; set; }
         public bool TrackingScript_OverrideForStore { get; set; }
-        
+
         [NopResourceDisplayName("Plugins.Widgets.GoogleAnalytics.IncludingTax")]
         public bool IncludingTax { get; set; }
         public bool IncludingTax_OverrideForStore { get; set; }

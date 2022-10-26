@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Widgets",
+  "FriendlyName": "My Widget",
+  "SystemName": "Widget.MyWidget",
+  "Version": "1.72",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "aalim",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widget.MyWidget.dll",
+  "Description": "This plugin integrates with Google Analytics. It keeps track of statistics about the visitors and ecommerce conversion on your website"
+}

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Nop.Plugin.Pickup.PickupInStore": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:50087;http://localhost:50088"
+    }
+  }
+}

@@ -22,7 +22,9 @@ namespace Nop.Data.DataProviders
     {
         #region Fields
 
-        private static readonly Lazy<IDataProvider> _dataProvider = new(() => new SqlServerDataProvider(ProviderName.SqlServer, SqlServerVersion.v2012, SqlServerProvider.MicrosoftDataSqlClient), true);
+        private static readonly Lazy<IDataProvider> _dataProvider = 
+            new(() => new SqlServerDataProvider(ProviderName.SqlServer, 
+                SqlServerVersion.v2012, SqlServerProvider.MicrosoftDataSqlClient), true);
 
         #endregion
 

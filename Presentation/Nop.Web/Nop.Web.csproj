@@ -44,7 +44,6 @@
     <Content Include="Themes\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="Never" />
 
     <!-- We copy the \Logs directory -->
-    <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
 
     <None Update="Areas\Admin\sitemap.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -61,7 +60,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Plugins\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
 

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Nop.Plugin.Shipping.FixedByWeightByTotal": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:50091;http://localhost:50092"
+    }
+  }
+}

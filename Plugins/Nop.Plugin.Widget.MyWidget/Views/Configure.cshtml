@@ -1,0 +1,39 @@
+﻿@model Nop.Plugin.Widget.MyWidget.Models.ConfigurationModel
+@{
+    Layout = "_ConfigurePlugin";
+}
+
+@await Component.InvokeAsync("StoreScopeConfiguration")
+
+<form asp-controller="MyWidget" asp-action="Configure" method="post">
+    <div class="cards-group">
+        @*<div class="card card-default">
+            <div class="card-body">
+                Please Enter Your Custom Text
+            </div>
+        </div>*@
+        <div class="card card-default">
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="CustomText" asp-input="CustomText" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="CustomText" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="CustomText" />
+                        <span asp-validation-for="CustomText"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-9">
+                        <button type="submit" name="save" class="btn btn-primary">@T("Admin.Common.Save")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.ExternalAuth.Facebook\\Nop.Plugin.ExternalAuth.Facebook.csproj": {}
+  },
+  "projects": {
+    "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.ExternalAuth.Facebook\\Nop.Plugin.ExternalAuth.Facebook.csproj": {
+      "version": "4.5.0",
+      "restore": {
+        "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.ExternalAuth.Facebook\\Nop.Plugin.ExternalAuth.Facebook.csproj",
+        "projectName": "Nop.Data",
+        "projectPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.ExternalAuth.Facebook\\Nop.Plugin.ExternalAuth.Facebook.csproj",
+        "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
+        "outputPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Core\\Nop.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
