@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nop.Core.Domain.Vendors
+namespace Nop.Core.Domain.Books
 {
     /// <summary>
     /// Represents a vendor note

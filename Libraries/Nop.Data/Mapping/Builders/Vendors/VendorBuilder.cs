@@ -6,7 +6,7 @@ namespace Nop.Data.Mapping.Builders.Vendors
     /// <summary>
     /// Represents a vendor entity builder
     /// </summary>
-    public partial class VendorBuilder : NopEntityBuilder<Vendor>
+    public partial class BookBuilder : NopEntityBuilder<Vendor>
     {
         #region Methods
 
