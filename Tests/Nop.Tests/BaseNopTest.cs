@@ -43,6 +43,7 @@ using Nop.Services.Affiliates;
 using Nop.Services.Authentication.External;
 using Nop.Services.Authentication.MultiFactor;
 using Nop.Services.Blogs;
+using Nop.Services.Books;
 using Nop.Services.Catalog;
 using Nop.Services.Cms;
 using Nop.Services.Common;
@@ -366,6 +367,7 @@ namespace Nop.Tests
             services.AddTransient<IExternalAuthenticationService, ExternalAuthenticationService>();
             services.AddScoped<IBBCodeHelper, BBCodeHelper>();
             services.AddScoped<IHtmlFormatter, HtmlFormatter>();
+            services.AddTransient<IBookService, BookService>();
 
             //slug route transformer
             services.AddSingleton<IReviewTypeService, ReviewTypeService>();

@@ -85,6 +85,12 @@ namespace Nop.Web.Infrastructure
             services.AddScoped<IVendorAttributeModelFactory, VendorAttributeModelFactory>();
             services.AddScoped<IVendorModelFactory, VendorModelFactory>();
             services.AddScoped<IWidgetModelFactory, WidgetModelFactory>();
+            
+            #region custom
+
+            services.AddScoped<IBookModelFactory, BookModelFactory>();
+
+            #endregion
 
             //factories
             services.AddScoped<Factories.IAddressModelFactory, Factories.AddressModelFactory>();
@@ -108,6 +114,7 @@ namespace Nop.Web.Infrastructure
             services.AddScoped<Factories.ITopicModelFactory, Factories.TopicModelFactory>();
             services.AddScoped<Factories.IVendorModelFactory, Factories.VendorModelFactory>();
             services.AddScoped<Factories.IWidgetModelFactory, Factories.WidgetModelFactory>();
+            //services.AddScoped<Factories.IBookModelFactory, Factories.BookModelFactory>();
 
             //helpers classes
             services.AddScoped<ITinyMceHelper, TinyMceHelper>();
