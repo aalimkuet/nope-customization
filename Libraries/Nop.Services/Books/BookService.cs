@@ -1,13 +1,9 @@
-﻿using System;
+﻿using Nop.Core;
+using Nop.Core.Domain.Books;
+using Nop.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Nop.Core;
-using Nop.Core.Domain.Catalog;
-using Nop.Core.Domain.Customers;
-using Nop.Core.Domain.Books;
-using Nop.Data;
-using Nop.Services.Html;
 
 namespace Nop.Services.Books
 {

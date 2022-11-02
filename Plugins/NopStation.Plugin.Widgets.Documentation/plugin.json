@@ -1,0 +1,12 @@
+﻿{
+  "Group": "Nop Station",
+  "FriendlyName": "Nop-Station Documentation",
+  "SystemName": "NopStation.Plugin.Widgets.Documentation",
+  "Version": "4.50.1.1",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "Nop-Station Team",
+  "DisplayOrder": 1,
+  "FileName": "NopStation.Plugin.Widgets.Documentation.dll",
+  "Description": "This plugin added Documentation functionality",
+  "DependsOnSystemNames": [ "NopStation.Core" ]
+}

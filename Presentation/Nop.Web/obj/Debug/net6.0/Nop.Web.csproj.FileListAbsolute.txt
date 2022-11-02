@@ -1775,7 +1775,6 @@ D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.GeneratedMS
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.AssemblyInfoInputs.cache
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.AssemblyInfo.cs
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.csproj.CoreCompileInputs.cache
-D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.MvcApplicationPartsAssemblyInfo.cs
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.MvcApplicationPartsAssemblyInfo.cache
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.RazorAssemblyInfo.cache
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.RazorAssemblyInfo.cs
@@ -1788,3 +1787,4 @@ D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\refint\Nop.Web.dll
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.pdb
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.genruntimeconfig.cache
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\ref\Nop.Web.dll
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.MvcApplicationPartsAssemblyInfo.cs

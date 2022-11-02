@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Nop.Core.Domain.Catalog;
-using Nop.Core.Domain.Directory;
-using Nop.Core.Domain.Books;
-using Nop.Services.Catalog;
-using Nop.Services.Common;
-using Nop.Services.Customers;
-using Nop.Services.Directory;
-using Nop.Services.Helpers;
-using Nop.Services.Localization;
-using Nop.Services.Seo;
+﻿using Nop.Core.Domain.Books;
 using Nop.Services.Books;
 using Nop.Web.Areas.Admin.Infrastructure.Mapper.Extensions;
 using Nop.Web.Areas.Admin.Models.Books;
-using Nop.Web.Framework.Factories;
 using Nop.Web.Framework.Models.Extensions;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Nop.Web.Areas.Admin.Factories
 {
@@ -104,16 +93,16 @@ namespace Nop.Web.Areas.Admin.Factories
         /// A task that represents the asynchronous operation
         /// The task result contains the Book model
         /// </returns>
-        public virtual async Task<BookModel> PrepareBookModelAsync(BookModel model, Book Book, bool excludeProperties = false)
+        public virtual async Task<BookModel> PrepareBookModelAsync(BookModel model, Book book, bool excludeProperties = false)
         {
 
-            if (Book != null)
+            if (book != null)
             {
                 //fill in model values from the entity
                 if (model == null)
                 {
-                    model = Book.ToModel<BookModel>();
-
+                    model = book.ToModel<BookModel>();
+                      
                 }
             }
 

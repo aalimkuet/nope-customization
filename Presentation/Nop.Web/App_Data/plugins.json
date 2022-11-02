@@ -86,6 +86,14 @@
     {
       "SystemName": "ExternalAuth.Facebook",
       "Version": "1.73"
+    },
+    {
+      "SystemName": "Widgets.Students",
+      "Version": "1.72"
+    },
+    {
+      "SystemName": "Widgets.Customer",
+      "Version": "1.0.0"
     }
   ],
   "PluginNamesToUninstall": [],

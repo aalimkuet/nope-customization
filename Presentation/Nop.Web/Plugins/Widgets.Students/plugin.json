@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Widgets",
+  "FriendlyName": "Student Widget",
+  "SystemName": "Widgets.Students",
+  "Version": "1.72",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "aalim",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widgets.Students.dll",
+  "Description": "This is Sample Student CRUD operation"
+}

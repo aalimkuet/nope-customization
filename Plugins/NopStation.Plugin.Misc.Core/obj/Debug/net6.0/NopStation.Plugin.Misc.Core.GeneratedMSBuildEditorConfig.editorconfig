@@ -1,0 +1,44 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = NopStation.Plugin.Misc.Core
+build_property.RootNamespace = NopStation.Plugin.Misc.Core
+build_property.ProjectDir = D:\BS23\nopCommerce_v1\Plugins\NopStation.Plugin.Misc.Core\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = D:\BS23\nopCommerce_v1\Plugins\NopStation.Plugin.Misc.Core
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/BS23/nopCommerce_v1/Plugins/NopStation.Plugin.Misc.Core/Views/NopStationCore/AssemblyInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9wU3RhdGlvbkNvcmVcQXNzZW1ibHlJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BS23/nopCommerce_v1/Plugins/NopStation.Plugin.Misc.Core/Views/NopStationCore/LocaleResource.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9wU3RhdGlvbkNvcmVcTG9jYWxlUmVzb3VyY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BS23/nopCommerce_v1/Plugins/NopStation.Plugin.Misc.Core/Views/NopStationCore/Permissions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9wU3RhdGlvbkNvcmVcUGVybWlzc2lvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BS23/nopCommerce_v1/Plugins/NopStation.Plugin.Misc.Core/Views/NopStationLicense/License.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9wU3RhdGlvbkxpY2Vuc2VcTGljZW5zZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BS23/nopCommerce_v1/Plugins/NopStation.Plugin.Misc.Core/Views/Shared/EditorTemplates/Time.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xUaW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BS23/nopCommerce_v1/Plugins/NopStation.Plugin.Misc.Core/Views/Shared/EditorTemplates/TimeNullable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xUaW1lTnVsbGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BS23/nopCommerce_v1/Plugins/NopStation.Plugin.Misc.Core/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 

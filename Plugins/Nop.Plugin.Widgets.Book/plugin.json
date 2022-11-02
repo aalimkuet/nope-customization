@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Widgets",
+  "FriendlyName": "Book Tracker",
+  "SystemName": "Widgets.BookTracker",
+  "Version": "1.0.0",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "Nahid",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widgets.BookTracker.dll",
+  "Description": "This plugin is basic Book information"
+}

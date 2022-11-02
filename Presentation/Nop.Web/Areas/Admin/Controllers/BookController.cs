@@ -74,7 +74,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         public virtual async Task<IActionResult> List()
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageBooks))
-                ;// return AccessDeniedView();
+                return AccessDeniedView();
 
             //prepare model
             var model = await _BookModelFactory.PrepareBookSearchModelAsync(new BookSearchModel());
@@ -86,7 +86,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         public virtual async Task<IActionResult> List(BookSearchModel searchModel)
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageBooks))
-                ;// return await AccessDeniedDataTablesJson();
+                 return await AccessDeniedDataTablesJson();
 
             //prepare model
             var model = await _BookModelFactory.PrepareBookListModelAsync(searchModel);
@@ -97,7 +97,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         public virtual async Task<IActionResult> Create()
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageBooks))
-                ;//return AccessDeniedView();
+                return AccessDeniedView();
 
             //prepare model
             var model = await _BookModelFactory.PrepareBookModelAsync(new BookModel(), null);
@@ -110,7 +110,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         public virtual async Task<IActionResult> Create(BookModel model, bool continueEditing, IFormCollection form)
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageBooks))
-                ;// return AccessDeniedView();
+                 return AccessDeniedView();
 
             if (ModelState.IsValid)
             {
@@ -137,7 +137,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         public virtual async Task<IActionResult> Edit(int id)
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageBooks))
-                ; // return AccessDeniedView();
+                 return AccessDeniedView();
 
             //try to get a Book with the specified id
             var Book = await _BookService.GetBookByIdAsync(id);
@@ -154,7 +154,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         public virtual async Task<IActionResult> Edit(BookModel model, bool continueEditing, IFormCollection form)
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageBooks))
-                ;// return AccessDeniedView();
+                 return AccessDeniedView();
 
             //try to get a Book with the specified id
             var Book = await _BookService.GetBookByIdAsync(model.Id);
@@ -186,7 +186,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         public virtual async Task<IActionResult> Delete(int id)
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageBooks))
-                ;// return AccessDeniedView();
+                return AccessDeniedView();
 
             //try to get a Book with the specified id
             var Book = await _BookService.GetBookByIdAsync(id);

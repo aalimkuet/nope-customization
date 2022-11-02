@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "NopStation.Plugin.Misc.Core": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\BS23\\nopCommerce_v1\\Plugins\\NopStation.Plugin.Misc.Core\\dll",
+      "nativeDebugging": true
+    },
+    "Profile 1": {
+      "commandName": "Project"
+    }
+  }
+}

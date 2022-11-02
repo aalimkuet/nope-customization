@@ -58,7 +58,8 @@ namespace Nop.Services.Security
         public static readonly PermissionRecord HtmlEditorManagePictures = new() { Name = "Admin area. HTML Editor. Manage pictures", SystemName = "HtmlEditor.ManagePictures", Category = "Configuration" };
         public static readonly PermissionRecord ManageScheduleTasks = new() { Name = "Admin area. Manage Schedule Tasks", SystemName = "ManageScheduleTasks", Category = "Configuration" };
         public static readonly PermissionRecord ManageAppSettings = new() { Name = "Admin area. Manage App Settings", SystemName = "ManageAppSettings", Category = "Configuration" };
-        public static readonly PermissionRecord ManageBooks = new() { Name = "Admin area. Manage Books", SystemName = "ManageBooks", Category = "Catalog" };
+        public static readonly PermissionRecord ManageBooks = new() { Name = "Admin area. Manage Books", SystemName = "ManageBooks", Category = "Customers" };
+        public static readonly PermissionRecord ManageStudents = new() { Name = "Admin area. Manage Students", SystemName = "ManageStudents", Category = "Customers" };
 
 
         //public store permissions
@@ -131,7 +132,8 @@ namespace Nop.Services.Security
                 PublicStoreAllowNavigation,
                 AccessClosedStore,
                 AccessProfiling,
-                ManageBooks
+                ManageBooks,
+                ManageStudents,
             };
         }
 
@@ -202,6 +204,7 @@ namespace Nop.Services.Security
                         AccessClosedStore,
                         AccessProfiling,
                         ManageBooks,
+                        ManageStudents,
                     }
                 ),
                 (
