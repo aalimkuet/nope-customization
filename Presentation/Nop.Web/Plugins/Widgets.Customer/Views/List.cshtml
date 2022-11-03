@@ -5,9 +5,10 @@
 @{
     //page title
     ViewBag.PageTitle = T("Admin.CustomerTracker").Text;
-    Layout = "~/Areas/Admin/Views/Shared/_ConfigurePlugin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
     //active menu item (system name)
-    //NopHtml.SetActiveMenuItemSystemName("CustomerTracker");
+    NopHtml.SetActiveMenuItemSystemName("CustomerTrackerList");
 
 }
 
@@ -107,7 +108,7 @@
                         new ColumnProperty(nameof(CustomerTrackerModel.Address))
                         {
                         Title = T("Admin.CustomerTrackers.Fields.Address").Text,
-                        Width = "300"                         
+                        Width = "300"
                         },
                         new ColumnProperty(nameof(CustomerTrackerModel.Id))
                         {

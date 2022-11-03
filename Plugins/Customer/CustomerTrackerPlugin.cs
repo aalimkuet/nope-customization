@@ -64,17 +64,25 @@ namespace Nop.Plugin.Widgets.Customer
         {
             return Task.FromResult<IList<string>>(new List<string> { "" });
         }
-        public override Task InstallAsync()
+        public override async Task InstallAsync()
         {
             //register default permissions
             var permissionProviders = new List<Type> { typeof(CustomerPermissionProvider) };
             foreach (var providerType in permissionProviders)
             {
                 var provider = (IPermissionProvider)Activator.CreateInstance(providerType);
-                 _permissionService.InstallPermissionsAsync(provider);
+                await _permissionService.InstallPermissionsAsync(provider);
             }
 
-            return base.InstallAsync();
+            await _localizationService.AddOrUpdateLocaleResourceAsync(new Dictionary<string, string>
+            {
+                ["Admin.CustomerTrackers.Fields.Name.Required"] = "Customer Name Required",
+                ["Admin.CustomerTrackers.Fields.ContactNo.Required"] = "Contact No Required",
+                ["Admin.CustomerTrackers.Fields.Address.Required"] = "Address Required",
+
+            });
+
+           await base.InstallAsync();
         }
         public override async Task UninstallAsync()
         {
@@ -120,28 +128,31 @@ namespace Nop.Plugin.Widgets.Customer
                 };
                 rootNode.ChildNodes.Add(parentNode);
             }
+            var customerNode = rootNode.ChildNodes.FirstOrDefault(x => x.SystemName == "CustomerTracker");
+            if (customerNode == null)
+            {
+                customerNode = new SiteMapNode()
+                {
+                    Title = "Customer Tracker",
+                    SystemName = "CustomerTracker",
+                    IconClass = "far fa-dot-circle",
+                    Visible = true,
+                };
+                parentNode.ChildNodes.Add(customerNode);
+            }
 
             //if (!await _permissionService.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
             //    return;
 
-            var cild = parentNode.ChildNodes.FirstOrDefault(node => node.SystemName.Equals("CustomerTracker"));
-            //if (cild == null)
-            //    return;
-
-            //var index = parentNode.ChildNodes.IndexOf(cild);
-
-            //if (index < 0)
-            //    return;
-
-            var configItem = new SiteMapNode()
+            var ListItem = new SiteMapNode()
             {
-                Title = "Customer Tracker",
+                Title = "List",
                 Url = "~/Admin/CustomerTracker/List",
                 Visible = true,
-                IconClass = "far fa-circle",
-                SystemName = "CustomerTracker.Customers"
+                IconClass = "far fa-dot-circle",
+                SystemName = "CustomerTrackerList"
             };
-            parentNode.ChildNodes.Add(configItem);
+            customerNode.ChildNodes.Add(ListItem);
 
 
             //parentNode.ChildNodes.Insert(index, new SiteMapNode
