@@ -8,6 +8,7 @@ using Nop.Services.Configuration;
 using Nop.Services.Localization;
 using Nop.Services.Plugins;
 using Nop.Services.Security;
+using Nop.Web.Framework.Infrastructure;
 using Nop.Web.Framework.Menu;
 using System;
 using System.Collections.Generic;
@@ -57,12 +58,12 @@ namespace Nop.Plugin.Widgets.Customer
 
         public string GetWidgetViewComponentName(string widgetZone)
         {
-            throw new NotImplementedException();
+            return "CustomerTracker";
         }
 
         public Task<IList<string>> GetWidgetZonesAsync()
         {
-            return Task.FromResult<IList<string>>(new List<string> { "" });
+            return Task.FromResult<IList<string>>(new List<string> { PublicWidgetZones.HomepageBottom });
         }
         public override async Task InstallAsync()
         {

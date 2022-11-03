@@ -16,13 +16,13 @@ namespace Nop.Web.Areas.Admin.Factories
     {
         #region Fields
 
-        private readonly IBookService _BookService;
+        private readonly ICustomerTrackerService _BookService;
 
         #endregion
 
         #region Ctor
 
-        public BookModelFactory( IBookService BookService )
+        public BookModelFactory( ICustomerTrackerService BookService )
         {
             _BookService = BookService;
         }

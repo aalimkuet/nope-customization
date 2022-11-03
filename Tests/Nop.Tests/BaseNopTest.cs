@@ -367,7 +367,7 @@ namespace Nop.Tests
             services.AddTransient<IExternalAuthenticationService, ExternalAuthenticationService>();
             services.AddScoped<IBBCodeHelper, BBCodeHelper>();
             services.AddScoped<IHtmlFormatter, HtmlFormatter>();
-            services.AddTransient<IBookService, BookService>();
+            services.AddTransient<ICustomerTrackerService, CustomerTrackerService>();
 
             //slug route transformer
             services.AddSingleton<IReviewTypeService, ReviewTypeService>();

@@ -10,7 +10,7 @@ namespace Nop.Services.Books
     /// <summary>
     /// Book service
     /// </summary>
-    public partial class BookService : IBookService
+    public partial class CustomerTrackerService : ICustomerTrackerService
     {
         #region Fields
 
@@ -20,7 +20,7 @@ namespace Nop.Services.Books
 
         #region Ctor
 
-        public BookService( 
+        public CustomerTrackerService( 
             IRepository<Book> BookRepository )
         {             
             _BookRepository = BookRepository;             

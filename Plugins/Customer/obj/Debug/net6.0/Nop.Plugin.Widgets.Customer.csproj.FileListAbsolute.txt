@@ -308,3 +308,4 @@ D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\Creat
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\_CreateOrUpdate.cshtml
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\_CreateOrUpdate.Display.cshtml
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\_CreateOrUpdate.Info.cshtml
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\CustomerList.cshtml

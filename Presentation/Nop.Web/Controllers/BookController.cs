@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nop.Core.Domain.Books;
 using Nop.Services.Books;
-using Nop.Services.Localization;
-using Nop.Services.Media;
-using Nop.Services.Messages;
 using Nop.Services.Security;
-using Nop.Services.Seo;
 using Nop.Web.Areas.Admin.Factories;
 using Nop.Web.Areas.Admin.Models.Books;
 using System.Threading.Tasks;
@@ -16,34 +12,23 @@ namespace Nop.Web.Controllers
     {
         #region Fields
 
-        private readonly ILocalizationService _localizationService;
-        private readonly INotificationService _notificationService;
         private readonly IPermissionService _permissionService;
-        private readonly IUrlRecordService _urlRecordService;
         private readonly IBookModelFactory _BookModelFactory;
-        private readonly IBookService _BookService;
+        private readonly ICustomerTrackerService _BookService;
 
         #endregion
 
         #region Ctor
 
         public BookController(
-
-            ILocalizationService localizationService,
-            ILocalizedEntityService localizedEntityService,
-            INotificationService notificationService,
+                         
             IPermissionService permissionService,
-            IPictureService pictureService,
-            IUrlRecordService urlRecordService,
             IBookModelFactory BookModelFactory,
-            IBookService BookService
-            )
-        {
+            ICustomerTrackerService BookService
 
-            _localizationService = localizationService;
-            _notificationService = notificationService;
+            )
+        {           
             _permissionService = permissionService;
-            _urlRecordService = urlRecordService;
             _BookModelFactory = BookModelFactory;
             _BookService = BookService;
         }

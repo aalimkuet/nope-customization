@@ -8,7 +8,7 @@ namespace Nop.Services.Books
     /// <summary>
     /// Book service interface
     /// </summary>
-    public partial interface IBookService
+    public partial interface ICustomerTrackerService
     {
         /// <summary>
         /// Gets a Book by Book identifier

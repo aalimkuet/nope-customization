@@ -1,6 +1,7 @@
 ﻿using Nop.Core;
 using Nop.Data;
 using Nop.Plugin.Widgets.BookTracker.Domain;
+using Nop.Plugin.Widgets.Customer.Models;
 using Nop.Plugin.Widgets.CustomerTrackers.Services;
 using System;
 using System.Collections.Generic;

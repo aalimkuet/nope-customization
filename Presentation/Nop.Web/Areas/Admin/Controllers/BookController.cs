@@ -35,7 +35,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         private readonly IPermissionService _permissionService;
         private readonly IUrlRecordService _urlRecordService;
         private readonly IBookModelFactory _BookModelFactory;
-        private readonly IBookService _BookService;
+        private readonly ICustomerTrackerService _BookService;
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             IPictureService pictureService,
             IUrlRecordService urlRecordService,
             IBookModelFactory BookModelFactory,
-            IBookService BookService
+            ICustomerTrackerService BookService
             )
         {
 
