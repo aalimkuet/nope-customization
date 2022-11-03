@@ -7,7 +7,7 @@ namespace Nop.Plugin.Widgets.Customer
 {
     public class CustomerPermissionProvider: IPermissionProvider
     {
-        public static readonly PermissionRecord ManageCustomerTracker = new() { Name = "Admin area. Manage CustomerTracker", SystemName = "ManageCustomerTracker", Category = "Customers" };
+        public static readonly PermissionRecord ManageCustomerTracker = new() { Name = "Admin area. Manage CustomerTracker", SystemName = "ManageCustomerTracker", Category = "Configuration" };
 
         public HashSet<(string systemRoleName, PermissionRecord[] permissions)> GetDefaultPermissions()
         {

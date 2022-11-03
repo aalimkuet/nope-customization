@@ -48,7 +48,7 @@ namespace Nop.Plugin.Widgets.Customer
         }
 
         #endregion
-        public bool HideInWidgetList => throw new NotImplementedException();
+        public bool HideInWidgetList => false;
 
         public override string GetConfigurationPageUrl()
         {
@@ -66,21 +66,21 @@ namespace Nop.Plugin.Widgets.Customer
         }
         public override Task InstallAsync()
         {
-            //await this.InstallPluginAsync(new CustomerPermissionProvider());
+            //register default permissions
+            var permissionProviders = new List<Type> { typeof(CustomerPermissionProvider) };
+            foreach (var providerType in permissionProviders)
+            {
+                var provider = (IPermissionProvider)Activator.CreateInstance(providerType);
+                 _permissionService.InstallPermissionsAsync(provider);
+            }
+
             return base.InstallAsync();
         }
         public override async Task UninstallAsync()
         {
             //settings
             await _settingService.DeleteSettingAsync<CustomerTrackerSettings>();
-
-            //fixed rates
-            //var fixedRates = await(await _shippingService.GetAllShippingMethodsAsync())
-            //    .SelectAwait(async shippingMethod => await _settingService.GetSettingAsync(
-            //        string.Format(FixedByWeightByTotalDefaults.FixedRateSettingsKey, shippingMethod.Id)))
-            //    .Where(setting => setting != null).ToListAsync();
-          //  await _settingService.DeleteSettingsAsync(fixedRates);
-
+                         
             //locales
             await _localizationService.DeleteLocaleResourcesAsync("Plugins.Widgets.BookTracker");
 

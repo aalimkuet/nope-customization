@@ -1,0 +1,34 @@
+@model CustomerTrackerModel
+
+<div class="card-body">
+     
+    <div class="form-group row">
+        <div class="col-md-3">
+            <nop-label asp-for="Name" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Name" asp-required="true" />
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <nop-label asp-for="ContactNo" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="ContactNo" asp-required="true" />
+            <span asp-validation-for="ContactNo"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <nop-label asp-for="Address" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="Address" asp-required="true" />
+            <span asp-validation-for="Address"></span>
+        </div>
+    </div>
+
+</div>

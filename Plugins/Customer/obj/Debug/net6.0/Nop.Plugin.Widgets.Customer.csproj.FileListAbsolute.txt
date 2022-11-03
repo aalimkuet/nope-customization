@@ -302,3 +302,9 @@ D:\BS23\nopCommerce_v1\Plugins\Customer\obj\Debug\net6.0\Nop.Plugin.Widgets.Cust
 D:\BS23\nopCommerce_v1\Plugins\Customer\obj\Debug\net6.0\ref\Nop.Plugin.Widgets.Customer.dll
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\Configure.cshtml
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\_ViewImports.cshtml
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\List.cshtml
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\Edit.cshtml
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\Create.cshtml
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\_CreateOrUpdate.cshtml
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\_CreateOrUpdate.Display.cshtml
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.Customer\Views\_CreateOrUpdate.Info.cshtml

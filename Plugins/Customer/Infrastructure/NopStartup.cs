@@ -2,6 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nop.Core.Infrastructure;
+using Nop.Plugin.Widgets.Customer.Factories;
+using Nop.Plugin.Widgets.Customer.Services;
+using Nop.Plugin.Widgets.CustomerTrackers.Services;
 
 namespace Nop.Plugin.Widgets.Customer.Infrastructure
 {
@@ -17,7 +20,8 @@ namespace Nop.Plugin.Widgets.Customer.Infrastructure
         /// <param name="configuration">Configuration of the application</param>
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-           //services.AddScoped<IShippingByWeightByTotalService, ShippingByWeightByTotalService>();
+           services.AddScoped<ICustomerTrackerService, CustomerTrackerService>();
+           services.AddScoped<ICustomerTrackerModelFactory, CustomerTrackerModelFactory>();
         }
 
         /// <summary>

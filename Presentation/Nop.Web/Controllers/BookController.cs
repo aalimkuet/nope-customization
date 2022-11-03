@@ -16,7 +16,6 @@ namespace Nop.Web.Controllers
     {
         #region Fields
 
-
         private readonly ILocalizationService _localizationService;
         private readonly INotificationService _notificationService;
         private readonly IPermissionService _permissionService;
