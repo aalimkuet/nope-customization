@@ -1,11 +1,4 @@
-﻿@using Nop.Plugin.Widgets.BookTracker.Domain
- 
-@model IEnumerable<CustomerTracker>
-
-@{
-    //ViewBag.Title = "Book List";
-   // Layout = "_ColumnsTwo";
-}
+﻿@model IEnumerable<CustomerTrackerModel>
 
 <div style="margin-bottom: 30px">
     <h2>Customer List</h2>
@@ -23,7 +16,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Address)
             </th>
-
+            <th>
+                @Html.DisplayNameFor(model => model.PictureId)
+            </th>
         </tr>
 
 
@@ -40,6 +35,14 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+
+                    <td width="300px">
+                        <a href="@item.PictureUrl" target="_blank">
+                            <div style="max-width:100px">
+                                <img alt="@item.OverrideAltAttribute" src="@item.PictureUrl" title="@item.OverrideTitleAttribute" style="width:100%" />
+                            </div>
+                        </a>
                     </td>
 
                 </tr>

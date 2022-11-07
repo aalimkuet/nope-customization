@@ -5,7 +5,9 @@ using Nop.Plugin.Widgets.Customer.Factories;
 using Nop.Plugin.Widgets.Customer.Mapper;
 using Nop.Plugin.Widgets.Customer.Models;
 using Nop.Plugin.Widgets.CustomerTrackers.Services;
+using Nop.Services.Catalog;
 using Nop.Services.Localization;
+using Nop.Services.Media;
 using Nop.Services.Messages;
 using Nop.Services.Security;
 using Nop.Web.Framework;
@@ -29,6 +31,7 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
         private readonly ICustomerTrackerModelFactory _customerTrackerModelFactory;
         private readonly ICustomerTrackerService _customerTrackerService;
         private readonly Lazy<IPermissionService> _permissionService;
+        private readonly IPictureService _pictureService;
 
         #endregion
 
@@ -39,7 +42,8 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
             INotificationService notificationService,
            Lazy<IPermissionService> permissionService,
             ICustomerTrackerModelFactory customerTrackerModelFactory,
-            ICustomerTrackerService customerTrackerService
+            ICustomerTrackerService customerTrackerService,
+            IPictureService pictureService
             )
         {
             _localizationService = localizationService;
@@ -47,6 +51,7 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
             _permissionService = permissionService;
             _customerTrackerModelFactory = customerTrackerModelFactory;
             _customerTrackerService = customerTrackerService;
+            _pictureService = pictureService;
         }
 
         #endregion
@@ -101,6 +106,29 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
             if (ModelState.IsValid)
             {
                 var customerTracker = model.ToEntity<CustomerTracker>();
+
+                //try to get a picture with the specified id
+                var picture = await _pictureService.GetPictureByIdAsync(model.PictureId)
+                    ?? throw new ArgumentException("No picture found with the specified id");
+
+                await _pictureService.UpdatePictureAsync(picture.Id,
+                    await _pictureService.LoadPictureBinaryAsync(picture),
+                    picture.MimeType,
+                    picture.SeoFilename,
+                    model.OverrideAltAttribute,
+                   model.OverrideTitleAttribute
+
+                   );
+
+                ///await _pictureService.SetSeoFilenameAsync(model.PictureId, await _pictureService.GetPictureSeNameAsync(product.Name));
+
+                //await _productService.InsertProductPictureAsync(new ProductPicture
+                //{
+                //    PictureId = pictureId,
+                //    ProductId = productId,
+                //    DisplayOrder = displayOrder
+                //});
+
                 await _customerTrackerService.InsertCustomerTrackerAsync(customerTracker);
 
                 _notificationService.SuccessNotification(await _localizationService.GetResourceAsync("Admin.CustomerTrackers.Added"));
@@ -146,7 +174,6 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
             var CustomerTracker = await _customerTrackerService.GetCustomerTrackerByIdAsync(model.Id);
             if (CustomerTracker == null)
                 return RedirectToAction("List");
-
 
             if (ModelState.IsValid)
             {

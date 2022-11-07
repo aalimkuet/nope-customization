@@ -36,7 +36,10 @@ namespace Nop.Plugin.Widgets.Customer.Components
 
             //var model = await _customerTrackerModelFactory.PrepareCustomerTrackerListModelAsync(new CustomerTrackerSearchModel());
 
-            var model = await _customerTrackerService.GetAllCustomerTrackerList(new CustomerTracker());
+            //var SearchModel = await _customerTrackerModelFactory.PrepareCustomerSearchModelAsync(new CustomerTrackerSearchModel());
+
+            var model = await _customerTrackerService.GetAllCustomerTrackerList(new CustomerTrackerModel());
+
             //return Content("Hello");
             return View("~/Plugins/Widgets.Customer/Views/CustomerList.cshtml", model);
         }

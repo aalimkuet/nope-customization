@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Nop.Core.Domain.Catalog;
 using Nop.Core.Infrastructure.Mapper;
 using Nop.Plugin.Widgets.BookTracker.Domain;
+using Nop.Plugin.Widgets.Customer.Domain;
 using Nop.Plugin.Widgets.Customer.Models;
 
 namespace Nop.Plugin.Widgets.Customer.Mapper
@@ -29,8 +31,11 @@ namespace Nop.Plugin.Widgets.Customer.Mapper
         protected virtual void CreateCustomerTrackersMaps()
         {
             CreateMap<CustomerTrackerModel, CustomerTracker>();               
-            CreateMap<CustomerTracker, CustomerTrackerModel>();                 
-           
+            CreateMap<CustomerTracker, CustomerTrackerModel>();
+
+            //CreateMap<CustomerPicture, CustomerPictureModel>();
+            //CreateMap<CustomerPictureModel, CustomerPicture>();
+              
         }
 
         #endregion

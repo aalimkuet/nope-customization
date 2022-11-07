@@ -1,4 +1,5 @@
-﻿using Nop.Plugin.Widgets.BookTracker.Domain;
+﻿using Nop.Core.Domain.Catalog;
+using Nop.Plugin.Widgets.BookTracker.Domain;
 using Nop.Plugin.Widgets.Customer.Models;
 using System.Threading.Tasks;
 
@@ -40,6 +41,6 @@ namespace Nop.Plugin.Widgets.Customer.Factories
         /// The task result contains the CustomerTracker model
         /// </returns>
         Task<CustomerTrackerModel> PrepareCustomerTrackerModelAsync(CustomerTrackerModel model, CustomerTracker CustomerTracker, bool excludeProperties = false);
- 
+        Task<CustomerTrackerSearchModel> PrepareCustomerSearchModelAsync(CustomerTrackerSearchModel searchModel);
     }
 }

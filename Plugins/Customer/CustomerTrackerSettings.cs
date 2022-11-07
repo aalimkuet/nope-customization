@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nop.Plugin.Widgets.BookTracker
+namespace Nop.Plugin.Widgets.Customer
 {
     public class CustomerTrackerSettings : ISettings
     {

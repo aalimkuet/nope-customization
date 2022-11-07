@@ -110,6 +110,11 @@
                         Title = T("Admin.CustomerTrackers.Fields.Address").Text,
                         Width = "300"
                         },
+                        new ColumnProperty(nameof(CustomerTrackerModel.PictureUrl))
+                        {
+                        Title = T("Admin.Catalog.Products.Pictures.Fields.Picture").Text,
+                        Render = new RenderCustom("renderPicturesColumnProductPictureUrl")
+                        },
                         new ColumnProperty(nameof(CustomerTrackerModel.Id))
                         {
                         Title = T("Admin.Common.Edit").Text,
@@ -125,3 +130,8 @@
         </div>
     </div>
 </section>
+<script>
+    function renderPicturesColumnProductPictureUrl(data, type, row, meta) {
+        return '<a href="' + row.PictureUrl + '" target="_blank"><img alt="' + row.PictureId + '" src="' + row.PictureUrl + '" width="150" /></a>';
+    }
+</script>

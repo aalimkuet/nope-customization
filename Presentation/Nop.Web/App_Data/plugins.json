@@ -90,10 +90,6 @@
     {
       "SystemName": "Widgets.Customer",
       "Version": "1.0.0"
-    },
-    {
-      "SystemName": "Widget.MyWidget",
-      "Version": "1.72"
     }
   ],
   "PluginNamesToUninstall": [],

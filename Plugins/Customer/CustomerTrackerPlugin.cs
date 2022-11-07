@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Nop.Core.Domain.Cms;
-using Nop.Plugin.Widgets.BookTracker;
 using Nop.Services.Cms;
 using Nop.Services.Configuration;
 using Nop.Services.Localization;
@@ -63,7 +62,7 @@ namespace Nop.Plugin.Widgets.Customer
 
         public Task<IList<string>> GetWidgetZonesAsync()
         {
-            return Task.FromResult<IList<string>>(new List<string> { PublicWidgetZones.HomepageBottom });
+            return Task.FromResult<IList<string>>(new List<string> { PublicWidgetZones.HomepageBottom,  });
         }
         public override async Task InstallAsync()
         {
@@ -91,7 +90,7 @@ namespace Nop.Plugin.Widgets.Customer
             await _settingService.DeleteSettingAsync<CustomerTrackerSettings>();
                          
             //locales
-            await _localizationService.DeleteLocaleResourcesAsync("Plugins.Widgets.BookTracker");
+            await _localizationService.DeleteLocaleResourcesAsync("Plugins.Widgets.CustomerTracker");
 
             await base.UninstallAsync();
         }

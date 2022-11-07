@@ -40,7 +40,7 @@ namespace Nop.Plugin.Widgets.CustomerTrackers.Services
         /// A task that represents the asynchronous operation
         /// The task result contains the CustomerTrackers
         /// </returns>
-        Task<IPagedList<CustomerTracker>> GetAllCustomerTrackersAsync(string name = "", string roll = "", int pageIndex = 0, int pageSize = int.MaxValue, bool showHidden = false);
+        Task<IPagedList<CustomerTracker>> GetAllCustomerTrackersAsync(string name = "", string contact = "", int pageIndex = 0, int pageSize = int.MaxValue, bool showHidden = false);
 
         /// <summary>
         /// Inserts a CustomerTracker
@@ -55,6 +55,6 @@ namespace Nop.Plugin.Widgets.CustomerTrackers.Services
         /// <param name="CustomerTracker">CustomerTracker</param>
         /// <returns>A task that represents the asynchronous operation</returns>
         Task UpdateCustomerTrackerAsync(CustomerTracker CustomerTracker);
-         Task<List<CustomerTracker>> GetAllCustomerTrackerList(CustomerTracker CustomerTracker);
+         Task<List<CustomerTrackerModel>> GetAllCustomerTrackerList(CustomerTrackerModel CustomerTracker);
     }
 }

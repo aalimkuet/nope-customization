@@ -185,7 +185,7 @@ scrollX: true,
 info: @Model.Info.ToString().ToLowerInvariant(),
 paging: @Model.Paging.ToString().ToLowerInvariant(),
 pagingType: '@Model.PagingType',
-language: @await Html.PartialAsync("_GridLocalization"),
+language: @await Html.PartialAsync("~/Areas/Admin/Views/Shared/_GridLocalization.cshtml"),
 pageLength: @Model.Length,
 @if (!string.IsNullOrEmpty(Model.LengthMenu))
 {

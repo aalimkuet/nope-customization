@@ -20,8 +20,9 @@
 
             <nop-cards id="customerTracker-cards">
                 <nop-card asp-name="customerTracker-info" asp-icon="fas fa-info" asp-title="@T("Admin.customerTrackers.Info")"
-                          asp-hide-block-attribute-name="@hideInfoBlockAttributeName" asp-hide="@hideInfoBlock"
-                          asp-advanced="false">@await Html.PartialAsync("~/Plugins/Widgets.Customer/Views/_CreateOrUpdate.Info.cshtml", Model)</nop-card>
+                          asp-hide-block-attribute-name="@hideInfoBlockAttributeName" asp-hide="@hideInfoBlock" asp-advanced="false">
+                          @await Html.PartialAsync("~/Plugins/Widgets.Customer/Views/_CreateOrUpdate.Info.cshtml", Model)
+                          </nop-card>
             </nop-cards>
         </div>
     </div>

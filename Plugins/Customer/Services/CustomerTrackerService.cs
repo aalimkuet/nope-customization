@@ -1,8 +1,11 @@
 ﻿using Nop.Core;
 using Nop.Data;
 using Nop.Plugin.Widgets.BookTracker.Domain;
+using Nop.Plugin.Widgets.Customer.Mapper;
 using Nop.Plugin.Widgets.Customer.Models;
 using Nop.Plugin.Widgets.CustomerTrackers.Services;
+using Nop.Services.Media;
+using Nop.Web.Framework.Models.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,15 +21,17 @@ namespace Nop.Plugin.Widgets.Customer.Services
         #region Fields
 
         private readonly IRepository<CustomerTracker> _CustomerTrackerRepository;
+        private readonly IPictureService _pictureService;
 
         #endregion
 
         #region Ctor
 
         public CustomerTrackerService( 
-            IRepository<CustomerTracker> CustomerTrackerRepository )
+            IRepository<CustomerTracker> CustomerTrackerRepository, IPictureService pictureService )
         {             
-            _CustomerTrackerRepository = CustomerTrackerRepository;             
+            _CustomerTrackerRepository = CustomerTrackerRepository;  
+            _pictureService = pictureService;
         }
 
         #endregion
@@ -74,7 +79,7 @@ namespace Nop.Plugin.Widgets.Customer.Services
             return CustomerTrackers;
         }
 
-        public virtual async Task<List<CustomerTracker>> GetAllCustomerTrackerList(CustomerTracker CustomerTracker)
+        public virtual async Task<List<CustomerTrackerModel>> GetAllCustomerTrackerList(CustomerTrackerModel CustomerTracker)
         {
             //var CustomerTrackers = _CustomerTrackerRepository.GetAllAsync(CustomerTracker);
 
@@ -85,7 +90,59 @@ namespace Nop.Plugin.Widgets.Customer.Services
                 return query;
             });
 
-            return (List<CustomerTracker>)CustomerTrackers;
+            var Customerlist = new List<CustomerTrackerModel>();
+
+
+            foreach (var item in CustomerTrackers)
+            {
+                var mode1 = new CustomerTrackerModel
+                {
+                    Name = item.Name,
+                    ContactNo = item.ContactNo,
+                    Address = item.Address,
+                    PictureUrl = (await _pictureService.GetPictureUrlAsync(await _pictureService.GetPictureByIdAsync(item.PictureId))).Url
+                };
+
+                Customerlist.Add(mode1);
+            }
+
+            //get CustomerTrackers
+            var CustomerTrackers1 = await this.GetAllCustomerTrackersAsync(
+                showHidden: true,
+                name: "",
+                author: "",
+                pageIndex: 0
+                
+                );
+
+           // var search = new CustomerTrackerSearchModel();
+            /// prepare list model
+            //var model = await new CustomerTrackerListModel().PrepareToGridAsync(search, CustomerTrackers1, () =>
+            //{
+            //    //fill in model values from the entity
+            //    return CustomerTrackers.SelectAwait(async CustomerTracker =>
+            //    {
+            //        var CustomerTrackerModel = CustomerTracker.ToModel<CustomerTrackerModel>();
+
+            //        var picture = (await _pictureService.GetPictureByIdAsync(CustomerTracker.PictureId))
+            //            ?? throw new Exception("Picture cannot be loaded");
+
+            //        CustomerTrackerModel.PictureUrl = (await _pictureService.GetPictureUrlAsync(picture)).Url;
+
+            //        CustomerTrackerModel.OverrideAltAttribute = picture.AltAttribute;
+            //        CustomerTrackerModel.OverrideTitleAttribute = picture.TitleAttribute;
+
+            //        return CustomerTrackerModel;
+            //    });
+            //});
+
+
+            //var picture = (await _pictureService.GetPictureByIdAsync(CustomerTrackers1.))
+            //   ?? throw new Exception("Picture cannot be loaded");
+
+            //CustomerTracker.PictureUrl = (await _pictureService.GetPictureUrlAsync(picture)).Url;
+
+            return Customerlist;
         }
 
         /// <summary>

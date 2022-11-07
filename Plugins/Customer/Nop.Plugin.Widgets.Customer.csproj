@@ -23,6 +23,7 @@
 		<None Remove="Views\CustomerList.cshtml" />
 		<None Remove="Views\Edit.cshtml" />
 		<None Remove="Views\List.cshtml" />
+		<None Remove="Views\Table.cshtml" />
 		<None Remove="Views\_CreateOrUpdate.cshtml" />
 		<None Remove="Views\_CreateOrUpdate.Display.cshtml" />
 		<None Remove="Views\_CreateOrUpdate.Info.cshtml" />
