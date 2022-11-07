@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3m70zZx3le0Dq6wHTVRF8Jov3wfd04LvAPZ/ASABoTQ=",
+  "Hash": "634872KDm0AKxiuvj8MX7STe/A9ddFg6V+R7w8Rutas=",
   "Source": "Nop.Web",
   "BasePath": "_content/Nop.Web",
   "Mode": "Default",
@@ -13326,6 +13326,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\thumbs\\0000091_ER-Diagram_100.jpeg"
+    },
+    {
+      "Identity": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\wwwroot\\images\\thumbs\\0000092_bailey-zindel-NRQV-hBF10M-unsplash.jpeg",
+      "SourceId": "Nop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\wwwroot\\",
+      "BasePath": "_content/Nop.Web",
+      "RelativePath": "images/thumbs/0000092_bailey-zindel-NRQV-hBF10M-unsplash.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\thumbs\\0000092_bailey-zindel-NRQV-hBF10M-unsplash.jpeg"
     },
     {
       "Identity": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\wwwroot\\images\\thumbs\\default-image_100.png",
