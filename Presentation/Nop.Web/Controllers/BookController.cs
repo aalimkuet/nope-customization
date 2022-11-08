@@ -14,20 +14,20 @@ namespace Nop.Web.Controllers
 
         private readonly IPermissionService _permissionService;
         private readonly IBookModelFactory _BookModelFactory;
-        private readonly ICustomerTrackerService _BookService;
+        private readonly IBookService _BookService;
 
         #endregion
 
         #region Ctor
 
         public BookController(
-                         
+
             IPermissionService permissionService,
             IBookModelFactory BookModelFactory,
-            ICustomerTrackerService BookService
+            IBookService BookService
 
             )
-        {           
+        {
             _permissionService = permissionService;
             _BookModelFactory = BookModelFactory;
             _BookService = BookService;
@@ -43,9 +43,7 @@ namespace Nop.Web.Controllers
         }
         public virtual async Task<IActionResult> List()
         {
-            
-             var model = await _BookService.GetAllBookList(new Book());
-
+            var model = await _BookModelFactory.GetAllBookList();
             return View(model);
         }
         [HttpPost]

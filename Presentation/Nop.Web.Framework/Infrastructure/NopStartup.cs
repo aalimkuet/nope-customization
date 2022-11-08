@@ -220,7 +220,7 @@ namespace Nop.Web.Framework.Infrastructure
             services.AddScoped<IHtmlFormatter, HtmlFormatter>();
 
             #region custom 
-            services.AddScoped<ICustomerTrackerService, CustomerTrackerService>();
+            services.AddScoped<IBookService,BookService>();
             
             #endregion
             //plugin managers

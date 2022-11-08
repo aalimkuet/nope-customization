@@ -1,27 +1,17 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Nop.Core.Domain.Catalog;
-using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Books;
-using Nop.Services.Common;
-using Nop.Services.Customers;
+using Nop.Services.Books;
 using Nop.Services.Localization;
-using Nop.Services.Logging;
-using Nop.Services.Media;
 using Nop.Services.Messages;
 using Nop.Services.Security;
 using Nop.Services.Seo;
-using Nop.Services.Books;
 using Nop.Web.Areas.Admin.Factories;
 using Nop.Web.Areas.Admin.Infrastructure.Mapper.Extensions;
 using Nop.Web.Areas.Admin.Models.Books;
 using Nop.Web.Framework.Controllers;
-using Nop.Web.Framework.Mvc;
 using Nop.Web.Framework.Mvc.Filters;
+using System.Threading.Tasks;
 
 namespace Nop.Web.Areas.Admin.Controllers
 {
@@ -33,9 +23,8 @@ namespace Nop.Web.Areas.Admin.Controllers
         private readonly ILocalizationService _localizationService;
         private readonly INotificationService _notificationService;
         private readonly IPermissionService _permissionService;
-        private readonly IUrlRecordService _urlRecordService;
         private readonly IBookModelFactory _BookModelFactory;
-        private readonly ICustomerTrackerService _BookService;
+        private readonly IBookService _BookService;
 
         #endregion
 
@@ -44,20 +33,17 @@ namespace Nop.Web.Areas.Admin.Controllers
         public BookController(
 
             ILocalizationService localizationService,
-            ILocalizedEntityService localizedEntityService,
             INotificationService notificationService,
             IPermissionService permissionService,
-            IPictureService pictureService,
             IUrlRecordService urlRecordService,
             IBookModelFactory BookModelFactory,
-            ICustomerTrackerService BookService
+            IBookService BookService
             )
         {
 
             _localizationService = localizationService;
             _notificationService = notificationService;
             _permissionService = permissionService;
-            _urlRecordService = urlRecordService;
             _BookModelFactory = BookModelFactory;
             _BookService = BookService;
         }

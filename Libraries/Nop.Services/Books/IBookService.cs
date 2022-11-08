@@ -8,7 +8,7 @@ namespace Nop.Services.Books
     /// <summary>
     /// Book service interface
     /// </summary>
-    public partial interface ICustomerTrackerService
+    public partial interface IBookService
     {
         /// <summary>
         /// Gets a Book by Book identifier
@@ -54,6 +54,6 @@ namespace Nop.Services.Books
         /// <param name="Book">Book</param>
         /// <returns>A task that represents the asynchronous operation</returns>
         Task UpdateBookAsync(Book Book);
-         Task<List<Book>> GetAllBookList(Book book);
+         Task<IList<Book>> GetAllBookList(Book book);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Nop.Core.Domain.Books;
 using Nop.Web.Areas.Admin.Models.Books;
 
@@ -40,6 +41,6 @@ namespace Nop.Web.Areas.Admin.Factories
         /// The task result contains the Book model
         /// </returns>
         Task<BookModel> PrepareBookModelAsync(BookModel model, Book Book, bool excludeProperties = false);
- 
+        Task<List<BookModel>> GetAllBookList();
     }
 }

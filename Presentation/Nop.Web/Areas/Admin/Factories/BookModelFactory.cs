@@ -1,9 +1,11 @@
-﻿using Nop.Core.Domain.Books;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using Nop.Core.Domain.Books;
 using Nop.Services.Books;
 using Nop.Web.Areas.Admin.Infrastructure.Mapper.Extensions;
 using Nop.Web.Areas.Admin.Models.Books;
 using Nop.Web.Framework.Models.Extensions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,13 +18,13 @@ namespace Nop.Web.Areas.Admin.Factories
     {
         #region Fields
 
-        private readonly ICustomerTrackerService _BookService;
+        private readonly IBookService _BookService;
 
         #endregion
 
         #region Ctor
 
-        public BookModelFactory( ICustomerTrackerService BookService )
+        public BookModelFactory( IBookService BookService )
         {
             _BookService = BookService;
         }
@@ -101,12 +103,31 @@ namespace Nop.Web.Areas.Admin.Factories
                 //fill in model values from the entity
                 if (model == null)
                 {
-                    model = book.ToModel<BookModel>();
-                      
+                    model = book.ToModel<BookModel>();                      
                 }
             }
 
             return model;
+        }
+        public virtual async Task<List<BookModel>> GetAllBookList()
+        {
+            //var books = _BookRepository.GetAllAsync(book);
+
+            var books = await _BookService.GetAllBookList(new Book());
+            var bookList = new List<BookModel>();
+
+            foreach (var item in books)
+            {
+                var model = new BookModel() {
+                Name = item.Name,
+                Author = item.Author,
+                PublishDate = item.PublishDate
+                };
+
+                bookList.Add(model);
+            }
+
+            return bookList;
         }
 
 

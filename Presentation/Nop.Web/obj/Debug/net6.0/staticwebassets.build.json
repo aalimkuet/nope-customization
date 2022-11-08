@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "634872KDm0AKxiuvj8MX7STe/A9ddFg6V+R7w8Rutas=",
+  "Hash": "ROOa9rNcqYAmZprb1DhQWDUAQYGZvMnkR9Ppezdm1kw=",
   "Source": "Nop.Web",
   "BasePath": "_content/Nop.Web",
   "Mode": "Default",
@@ -8923,6 +8923,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\thumbs\\0000004_software.jpg"
+    },
+    {
+      "Identity": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\wwwroot\\images\\thumbs\\0000004_software_100.jpg",
+      "SourceId": "Nop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\wwwroot\\",
+      "BasePath": "_content/Nop.Web",
+      "RelativePath": "images/thumbs/0000004_software_100.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\thumbs\\0000004_software_100.jpg"
     },
     {
       "Identity": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\wwwroot\\images\\thumbs\\0000004_software_450.jpg",

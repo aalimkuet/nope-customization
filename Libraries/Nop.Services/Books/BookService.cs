@@ -10,7 +10,7 @@ namespace Nop.Services.Books
     /// <summary>
     /// Book service
     /// </summary>
-    public partial class CustomerTrackerService : ICustomerTrackerService
+    public partial class BookService : IBookService
     {
         #region Fields
 
@@ -20,7 +20,7 @@ namespace Nop.Services.Books
 
         #region Ctor
 
-        public CustomerTrackerService( 
+        public BookService( 
             IRepository<Book> BookRepository )
         {             
             _BookRepository = BookRepository;             
@@ -71,7 +71,7 @@ namespace Nop.Services.Books
             return Books;
         }
 
-        public virtual async Task<List<Book>> GetAllBookList(Book book)
+        public virtual async Task<IList<Book>> GetAllBookList(Book book)
         {
             //var books = _BookRepository.GetAllAsync(book);
 
@@ -81,8 +81,8 @@ namespace Nop.Services.Books
 
                 return query;
             });
-
-            return (List<Book>)books;
+           
+            return books;
         }
 
         /// <summary>
