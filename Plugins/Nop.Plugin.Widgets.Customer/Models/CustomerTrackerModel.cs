@@ -47,6 +47,8 @@ namespace Nop.Plugin.Widgets.Customer.Models
         public int DisplayOrder { get; set; }
         [NopResourceDisplayName("Admin.Catalog.Products.Pictures.Fields.Picture")]
         public string PictureUrl { get; set; }
+        [UIHint("Date")]
+        public string date { get; set; }
 
         public CustomerPictureModel AddPictureModel { get; set; }
         public IList<CustomerPictureModel> CustomerPictureModels { get; set; }

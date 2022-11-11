@@ -63,8 +63,8 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
 
         public virtual async Task<IActionResult> List()
         {
-            //if (!await _permissionService.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
-            //    return AccessDeniedView();
+            if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
+                return AccessDeniedView();
 
             //prepare model
             var model = await _customerTrackerModelFactory.PrepareCustomerTrackerSearchModelAsync(new CustomerTrackerSearchModel());
@@ -76,8 +76,8 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
         [HttpPost]
         public virtual async Task<IActionResult> List(CustomerTrackerSearchModel searchModel)
         {
-            //if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
-            //    return await AccessDeniedDataTablesJson();
+            if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
+                return await AccessDeniedDataTablesJson();
 
             //prepare model
             var model = await _customerTrackerModelFactory.PrepareCustomerTrackerListModelAsync(searchModel);
@@ -86,8 +86,8 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
         }
         public virtual async Task<IActionResult> Create()
         {
-            //if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
-            //    return AccessDeniedView();
+            if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
+                return AccessDeniedView();
 
             //prepare model
             var model = await _customerTrackerModelFactory.PrepareCustomerTrackerModelAsync(new CustomerTrackerModel(), null);
@@ -100,8 +100,8 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
         [FormValueRequired("save", "save-continue")]
         public virtual async Task<IActionResult> Create(CustomerTrackerModel model, bool continueEditing, IFormCollection form)
         {
-            //if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
-            //    return AccessDeniedView();
+            if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
+                return AccessDeniedView();
 
             if (ModelState.IsValid)
             {
@@ -143,14 +143,13 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
             model = await _customerTrackerModelFactory.PrepareCustomerTrackerModelAsync(model, null, true);
 
             //if we got this far, something failed, redisplay form
-            //return View(model);
             return View("~/Plugins/Widgets.Customer/Views/Create.cshtml", model);
         }
 
         public virtual async Task<IActionResult> Edit(int id)
         {
-            //if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
-            //    return AccessDeniedView();
+            if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
+                return AccessDeniedView();
 
             //try to get a CustomerTracker with the specified id
             var CustomerTracker = await _customerTrackerService.GetCustomerTrackerByIdAsync(id);
@@ -167,8 +166,8 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
         [HttpPost, ParameterBasedOnFormName("save-continue", "continueEditing")]
         public virtual async Task<IActionResult> Edit(CustomerTrackerModel model, bool continueEditing, IFormCollection form)
         {
-            //if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
-            //    return AccessDeniedView();
+            if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
+                return AccessDeniedView();
 
             //try to get a CustomerTracker with the specified ids
             var CustomerTracker = await _customerTrackerService.GetCustomerTrackerByIdAsync(model.Id);
@@ -192,15 +191,14 @@ namespace Nop.Plugin.Widgets.Customer.Controllers
             model = await _customerTrackerModelFactory.PrepareCustomerTrackerModelAsync(model, CustomerTracker, true);
 
             //if we got this far, something failed, redisplay form
-            //return View(model);
             return View("~/Plugins/Widgets.Customer/Views/Edit.cshtml", model);
         }
 
         [HttpPost]
         public virtual async Task<IActionResult> Delete(int id)
         {
-            //if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
-            //    return AccessDeniedView();
+            if (!await _permissionService.Value.AuthorizeAsync(CustomerPermissionProvider.ManageCustomerTracker))
+                return AccessDeniedView();
 
             //try to get a CustomerTracker with the specified id
             var CustomerTracker = await _customerTrackerService.GetCustomerTrackerByIdAsync(id);

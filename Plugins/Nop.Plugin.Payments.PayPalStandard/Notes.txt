@@ -29,4 +29,6 @@
 
 Replace “PLUGIN_OUTPUT_DIRECTORY” in the code above with your real plugin output directory name. 
 
-It’s not required. But this way we can use a new ASP.NET approach to add third-party references. It was introduced in .NET Core. Furthermore, references from already referenced libraries will be loaded automatically. It’s very convenient.
+It’s not required. But this way we can use a new ASP.NET approach to add third-party references. 
+It was introduced in .NET Core. Furthermore, references from already referenced libraries will be loaded automatically. 
+It’s very convenient.

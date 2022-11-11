@@ -50,7 +50,7 @@ namespace Nop.Web.Controllers
         public virtual async Task<IActionResult> List(BookSearchModel searchModel)
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageBooks))
-                ;// return await AccessDeniedDataTablesJson();
+                return await AccessDeniedDataTablesJson();
 
             //prepare model
             var model = await _BookModelFactory.PrepareBookListModelAsync(searchModel);

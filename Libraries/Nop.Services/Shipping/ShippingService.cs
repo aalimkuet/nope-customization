@@ -955,7 +955,6 @@ namespace Nop.Services.Shipping
 
             result.Errors.Clear();
             result.PickupPoints = allPickupPoints.OrderBy(point => point.DisplayOrder).ThenBy(point => point.Name).ToList();
-
             return result;
         }
 

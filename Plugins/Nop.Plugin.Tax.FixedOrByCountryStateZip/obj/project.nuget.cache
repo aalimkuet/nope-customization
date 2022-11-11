@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3qnsP4tqCWqs8zTMRs+mai4SaIwGihCR4ek9UTpk1S5C2fv4YTMUrQYergpusKR15Y6uzBcAMV35DjlDFRVeoA==",
+  "dgSpecHash": "k+M2J/KmbkHen1tIeHQ/LM38AwVHabnH/qJCjvnQRHGoka8eWuHj0/08tIE8z5bUlwuCy+AwizXH/ityw8XPnA==",
   "success": true,
   "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Tax.FixedOrByCountryStateZip\\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj",
   "expectedPackageFiles": [

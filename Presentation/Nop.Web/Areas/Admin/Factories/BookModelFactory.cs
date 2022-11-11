@@ -72,17 +72,17 @@ namespace Nop.Web.Areas.Admin.Factories
                 pageIndex: searchModel.Page - 1, pageSize: searchModel.PageSize);
 
             //prepare list model
-            var model = await new BookListModel().PrepareToGridAsync(searchModel, Books, () =>
+            var model = new BookListModel().PrepareToGrid(searchModel, Books, () =>
             {
                 //fill in model values from the entity
-                return Books.SelectAwait(async Book =>
+                return Books.Select( Book =>
                 {
-                    var BookModel = Book.ToModel<BookModel>();
+                    var BookModel =  Book.ToModel<BookModel>();
                     return BookModel;
                 });
             });
 
-            return model;
+            return await Task.FromResult(model);
         }
 
         /// <summary>
@@ -97,7 +97,6 @@ namespace Nop.Web.Areas.Admin.Factories
         /// </returns>
         public virtual async Task<BookModel> PrepareBookModelAsync(BookModel model, Book book, bool excludeProperties = false)
         {
-
             if (book != null)
             {
                 //fill in model values from the entity
@@ -107,7 +106,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 }
             }
 
-            return model;
+            return await Task.FromResult(model);
         }
         public virtual async Task<List<BookModel>> GetAllBookList()
         {

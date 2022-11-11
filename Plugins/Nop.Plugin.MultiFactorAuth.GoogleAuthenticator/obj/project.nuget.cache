@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "l8+Xe0JMxbHdtkvXfNjpZCaOTKRu9YrEFfL4c2AhRzHOyuwzmFbKq57TiFpfzWWWV3FZjt6UgGSse/sEFZCczw==",
+  "dgSpecHash": "4z/JLhFWkFMyMx2u+d03JCqIVqh/oUU8ekqNkV43DbIUeaj4e+ob8f288BAXbRvTUeyxfaJlZf0at2z9EsPFrA==",
   "success": true,
   "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj",
   "expectedPackageFiles": [

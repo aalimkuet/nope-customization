@@ -1788,3 +1788,8 @@ D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.pdb
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.genruntimeconfig.cache
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\ref\Nop.Web.dll
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\Nop.Web.MvcApplicationPartsAssemblyInfo.cs
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets\msbuild.Nop.Web.Microsoft.AspNetCore.StaticWebAssets.props
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets\msbuild.build.Nop.Web.props
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Nop.Web.props
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Nop.Web.props
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets.pack.json

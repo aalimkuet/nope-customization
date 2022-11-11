@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4ZDirqvMI2CWDmugKlWQ4ZfNj7xxovCQGSiyhYz3Xhsx29boQtiY6M9inKDLLKyZXzl78w3mFrsZUmqPDsnncQ==",
+  "dgSpecHash": "2ANg/YvQZX1r8fu8Dfo1dF/18Te3iL3QE1WkBqwHLG2Kjj6ONUmsLShsKjPPgYs2ciQlhWTPmuEsoSD8vKGIOg==",
   "success": true,
   "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj",
   "expectedPackageFiles": [
