@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZuJ57UfhjVc4N6oNGqtswy+cx51qrT2o8qAwQCzczTiR438GodA3wifYVvGemoauuPHjPc03tlOTgkvD3uaedQ==",
+  "dgSpecHash": "umaivH5sVaq2KmolzLa0eRNr1RQ1iVuDDQ1j/Dj5a76XUu+ah5+Kt1DHaftaRPoqiNmzVU0fgzOP2ofPUAer5Q==",
   "success": true,
   "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Nop.Web.csproj",
   "expectedPackageFiles": [
@@ -220,6 +220,7 @@
     "C:\\Users\\BS1054\\.nuget\\packages\\skiasharp\\2.80.3\\skiasharp.2.80.3.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.80.3\\skiasharp.nativeassets.linux.nodependencies.2.80.3.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\stackexchange.redis\\2.2.4\\stackexchange.redis.2.2.4.nupkg.sha512",
+    "C:\\Users\\BS1054\\.nuget\\packages\\stripe.net\\40.16.0\\stripe.net.40.16.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

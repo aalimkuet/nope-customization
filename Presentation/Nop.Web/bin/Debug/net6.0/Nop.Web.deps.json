@@ -39,6 +39,7 @@
           "Nop.Data": "4.5.0",
           "Nop.Services": "4.5.0",
           "Nop.Web.Framework": "4.5.0",
+          "Stripe.net": "40.16.0",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "6.0.0.0",
@@ -3595,6 +3596,21 @@
         },
         "compile": {
           "lib/net5.0/StackExchange.Redis.dll": {}
+        }
+      },
+      "Stripe.net/40.16.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "assemblyVersion": "40.16.0.0",
+            "fileVersion": "40.16.0.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Stripe.net.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -8273,6 +8289,13 @@
       "sha512": "sha512-wM0OuRyRaZTFndFRjIOvas4jjkeclRJsmNm0eAx5tOju3SQisrLubNaSFT/dBypi4Vh1n7nYc1gWpw9L7ernOg==",
       "path": "stackexchange.redis/2.2.4",
       "hashPath": "stackexchange.redis.2.2.4.nupkg.sha512"
+    },
+    "Stripe.net/40.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2qC8izhWx/551uXBsD7fh97kRUOwOVgYA6Vnb/tRBvVfJGi/bofDcSq5p7B483TlRlMK5ejAVpuaucBFhK7JiA==",
+      "path": "stripe.net/40.16.0",
+      "hashPath": "stripe.net.40.16.0.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",

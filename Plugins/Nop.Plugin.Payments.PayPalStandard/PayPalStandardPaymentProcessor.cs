@@ -39,7 +39,7 @@ namespace Nop.Plugin.Payments.PayPalStandard
 		private readonly ICustomerService _customerService;
 		private readonly IGenericAttributeService _genericAttributeService;
 		private readonly IHttpContextAccessor _httpContextAccessor;
-		private readonly ILocalizationService _localizationService;
+		private readonly ILocalizationService _localizationService;	
 		private readonly IOrderService _orderService;
 		private readonly IOrderTotalCalculationService _orderTotalCalculationService;
 		private readonly IProductService _productService;

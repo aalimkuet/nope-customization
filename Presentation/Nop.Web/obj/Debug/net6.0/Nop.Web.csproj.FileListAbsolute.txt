@@ -1793,3 +1793,4 @@ D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets\msb
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Nop.Web.props
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Nop.Web.props
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\obj\Debug\net6.0\staticwebassets.pack.json
+D:\BS23\nopCommerce_v1\Presentation\Nop.Web\bin\Debug\net6.0\Stripe.net.dll

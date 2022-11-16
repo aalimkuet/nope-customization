@@ -3986,6 +3986,23 @@
           }
         }
       },
+      "Stripe.net/40.16.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Stripe.net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6406,7 +6423,8 @@
           "Nop.Core": "4.5.0",
           "Nop.Data": "4.5.0",
           "Nop.Services": "4.5.0",
-          "Nop.Web.Framework": "4.5.0"
+          "Nop.Web.Framework": "4.5.0",
+          "stripe.net": "40.16.0"
         },
         "compile": {
           "bin/placeholder/Nop.Web.dll": {}
@@ -11268,6 +11286,29 @@
         "lib/netstandard2.0/StackExchange.Redis.xml",
         "stackexchange.redis.2.2.4.nupkg.sha512",
         "stackexchange.redis.nuspec"
+      ]
+    },
+    "Stripe.net/40.16.0": {
+      "sha512": "2qC8izhWx/551uXBsD7fh97kRUOwOVgYA6Vnb/tRBvVfJGi/bofDcSq5p7B483TlRlMK5ejAVpuaucBFhK7JiA==",
+      "type": "package",
+      "path": "stripe.net/40.16.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "icon.png",
+        "lib/net461/Stripe.net.dll",
+        "lib/net461/Stripe.net.xml",
+        "lib/net5.0/Stripe.net.dll",
+        "lib/net5.0/Stripe.net.xml",
+        "lib/net6.0/Stripe.net.dll",
+        "lib/net6.0/Stripe.net.xml",
+        "lib/netcoreapp3.1/Stripe.net.dll",
+        "lib/netcoreapp3.1/Stripe.net.xml",
+        "lib/netstandard2.0/Stripe.net.dll",
+        "lib/netstandard2.0/Stripe.net.xml",
+        "stripe.net.40.16.0.nupkg.sha512",
+        "stripe.net.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {

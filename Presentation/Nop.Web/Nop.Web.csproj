@@ -65,6 +65,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="stripe.net" Version="40.16.0" />
   </ItemGroup>
 
   <ItemGroup>

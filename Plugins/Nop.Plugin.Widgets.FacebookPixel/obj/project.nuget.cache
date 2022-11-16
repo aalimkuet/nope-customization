@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lH0u6RPUP4W+FKGq/i+aMACs6aaIYu8X3UbqXPsAWbGNr6pW//pn6wHeszV6G6mLt6sC+trsOFNVUiUlinV9uQ==",
+  "dgSpecHash": "Ko98L7BugUsWuF/CAUh+wBlmtD5b68dZ7O3IS0Nk0uzb8ZNh0GvJvASARlnfwk/Dq5vEN2FL0MbPuCv9qA61Gg==",
   "success": true,
   "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Widgets.FacebookPixel\\Nop.Plugin.Widgets.FacebookPixel.csproj",
   "expectedPackageFiles": [
@@ -220,6 +220,7 @@
     "C:\\Users\\BS1054\\.nuget\\packages\\skiasharp\\2.80.3\\skiasharp.2.80.3.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.80.3\\skiasharp.nativeassets.linux.nodependencies.2.80.3.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\stackexchange.redis\\2.2.4\\stackexchange.redis.2.2.4.nupkg.sha512",
+    "C:\\Users\\BS1054\\.nuget\\packages\\stripe.net\\40.16.0\\stripe.net.40.16.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

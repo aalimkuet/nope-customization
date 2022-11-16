@@ -510,6 +510,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.10, )"
+            },
+            "stripe.net": {
+              "target": "Package",
+              "version": "[40.16.0, )"
             }
           },
           "imports": [
