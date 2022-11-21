@@ -1,0 +1,15 @@
+﻿@model MenuModel
+
+@if (Model.ShowLinkOnTopMenu)
+{
+    <li><a href="@Url.RouteUrl("Documentations")">@T("NopStation.Documentation.TopMenu.Documentation")</a></li>
+}
+
+@if (Model.ShowLinkInFooterMenu)
+{
+    <script asp-location="Footer">
+        $(document).ready(function(){
+            $('.footer-block.customer-service .list').append('<li><a href="@Url.RouteUrl("Documentations")"><i class="fa fa-angle-right" aria-hidden="true"></i>@T("NopStation.Documentation.Footer.Documentation")</a></li>')
+        });
+    </script>
+}

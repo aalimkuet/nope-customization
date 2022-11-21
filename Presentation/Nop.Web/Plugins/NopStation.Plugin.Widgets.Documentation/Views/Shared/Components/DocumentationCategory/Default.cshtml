@@ -1,0 +1,15 @@
+﻿@model NavigationModel
+
+<div class="block block-blog-archive">
+    <div class="title">
+        <strong>@T("NopStation.Documentation.Menu")</strong>
+    </div>
+    <div class="listbox">
+        <ul class="list">
+            @foreach (var categoryModel in Model.MenuItems)
+            {
+                @await Html.PartialAsync("_CategoryNavigation", categoryModel);
+            }
+        </ul>
+    </div>
+</div>

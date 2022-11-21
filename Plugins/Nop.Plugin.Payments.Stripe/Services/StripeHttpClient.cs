@@ -1,9 +1,17 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Net.Http.Headers;
+using Nop.Core;
+using Stripe;
+using System;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Net.Http.Headers;
-using Nop.Core;
 
 namespace Nop.Plugin.Payments.Stripe.Services
 {
@@ -16,13 +24,16 @@ namespace Nop.Plugin.Payments.Stripe.Services
 
         private readonly HttpClient _httpClient;
         private readonly StripePaymentSettings _StripeStandardPaymentSettings;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
 
         #endregion
 
         #region Ctor
 
         public StripeHttpClient(HttpClient client,
-            StripePaymentSettings StripeStandardPaymentSettings)
+            StripePaymentSettings StripeStandardPaymentSettings,
+            IHttpContextAccessor httpContextAccessor)
         {
             //configure client
             client.Timeout = TimeSpan.FromSeconds(20);
@@ -30,21 +41,25 @@ namespace Nop.Plugin.Payments.Stripe.Services
 
             _httpClient = client;
             _StripeStandardPaymentSettings = StripeStandardPaymentSettings;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         #endregion
 
         #region Methods
 
-        /// <summary>
-        /// Gets PDT details
-        /// </summary>
-        /// <param name="tx">TX</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the asynchronous task whose result contains the PDT details
-        /// </returns>
-        public async Task<string> GetPdtDetailsAsync(string tx)
+
+      
+
+    /// <summary>
+    /// Gets PDT details
+    /// </summary>
+    /// <param name="tx">TX</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation
+    /// The task result contains the asynchronous task whose result contains the PDT details
+    /// </returns>
+    public async Task<string> GetPdtDetailsAsync(string tx)
         {
             //get response
             var url = _StripeStandardPaymentSettings.UseSandbox ?

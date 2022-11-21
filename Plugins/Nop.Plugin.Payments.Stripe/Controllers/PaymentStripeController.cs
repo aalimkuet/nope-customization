@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
 using Nop.Core.Domain.Orders;
 using Nop.Plugin.Payments.Stripe.Models;
@@ -13,6 +14,8 @@ using Nop.Services.Security;
 using Nop.Web.Framework;
 using Nop.Web.Framework.Controllers;
 using Nop.Web.Framework.Mvc.Filters;
+using Stripe;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Nop.Plugin.Payments.Stripe.Controllers
@@ -35,6 +38,8 @@ namespace Nop.Plugin.Payments.Stripe.Controllers
         private readonly IWorkContext _workContext;
         private readonly ShoppingCartSettings _shoppingCartSettings;
         private readonly StripePaymentSettings _stripePaymentSettings;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
 
         #endregion
 
@@ -53,7 +58,8 @@ namespace Nop.Plugin.Payments.Stripe.Controllers
             IWebHelper webHelper,
             IWorkContext workContext,
             ShoppingCartSettings shoppingCartSettings,
-            StripePaymentSettings stripePaymentSettings)
+            StripePaymentSettings stripePaymentSettings,
+            IHttpContextAccessor httpContextAccessor)
         {
             _genericAttributeService = genericAttributeService;
             _orderProcessingService = orderProcessingService;
@@ -69,12 +75,13 @@ namespace Nop.Plugin.Payments.Stripe.Controllers
             _workContext = workContext;
             _shoppingCartSettings = shoppingCartSettings;
             _stripePaymentSettings = stripePaymentSettings;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         #endregion
 
         #region Methods
-         
+
         [AuthorizeAdmin]
         [Area(AreaNames.Admin)]
         public async Task<IActionResult> Configure()
@@ -120,9 +127,7 @@ namespace Nop.Plugin.Payments.Stripe.Controllers
             _stripePaymentSettings.PublishableKey = model.PublishableKey;
             _stripePaymentSettings.AdditionalFee = model.AdditionalFee;
             _stripePaymentSettings.AdditionalFeePercentage = model.AdditionalFeePercentage;
-           await _settingService.SaveSettingAsync(_stripePaymentSettings);
-            _notificationService.SuccessNotification(await _localizationService.GetResourceAsync("Admin.Plugins.Saved"));
-           
+            await _settingService.SaveSettingAsync(_stripePaymentSettings);
 
             //now clear settings cache
             await _settingService.ClearCacheAsync();
@@ -130,6 +135,29 @@ namespace Nop.Plugin.Payments.Stripe.Controllers
             _notificationService.SuccessNotification(await _localizationService.GetResourceAsync("Admin.Plugins.Saved"));
 
             return await Configure();
+        }
+
+        // This is your Stripe CLI webhook secret for testing your endpoint locally.
+
+        const string endpointSecret = "whsec_8157644fd875bff8eae20647c5a3c91173bc78f19ecdc37868e8a1575dec2350";
+
+        [HttpPost("WebhookRequest")]
+        public async Task<IActionResult> HandleWebhook()
+        {
+            var json = await new StreamReader(_httpContextAccessor.HttpContext.Request.Body).ReadToEndAsync();
+            try
+            {
+                var stripeEvent = EventUtility.ConstructEvent(json, _httpContextAccessor.HttpContext.Request.Headers["Stripe-Signature"], endpointSecret);
+
+                // Handle the event
+                //Console.WriteLine("Unhandled event type: {0}", stripeEvent.Type);
+
+                return Ok();
+            }
+            catch (StripeException e)
+            {
+                return BadRequest();
+            }
         }
 
         #endregion

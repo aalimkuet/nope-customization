@@ -90,14 +90,13 @@
     {
       "SystemName": "Widgets.Customer",
       "Version": "1.0.0"
+    },
+    {
+      "SystemName": "Payments.Stripe",
+      "Version": "1.10"
     }
   ],
   "PluginNamesToUninstall": [],
   "PluginNamesToDelete": [],
-  "PluginNamesToInstall": [
-    {
-      "Item1": "Payments.Stripe",
-      "Item2": "eabb8855-2de0-4b65-815a-1a17b49e0265"
-    }
-  ]
+  "PluginNamesToInstall": []
 }

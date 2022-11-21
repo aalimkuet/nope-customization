@@ -1,0 +1,107 @@
+﻿@model ArticleModel
+@inject Nop.Services.Html.IHtmlFormatter htmlFormatter
+
+@{
+    Layout = "_ColumnsTwo";
+    NopHtml.AppendPageCssClassParts("html-documentation-page");
+    
+    NopHtml.AddCssFileParts("/Plugins/NopStation.Plugin.Widgets.Documentation/Themes/DefaultClean/contents/css/styles.css", string.Empty);
+    NopHtml.AppendScriptParts(ResourceLocation.Footer, "/Plugins/NopStation.Plugin.Widgets.Documentation/Themes/DefaultClean/contents/js/script.js");
+}
+
+@section left {
+    @await Component.InvokeAsync("DocumentationCategory", new { categoryId = Model.CategoryId, articleId = Model.Id })
+}
+@*
+@section heading {
+    <h2 class="temporari-heading text-uppercase font-bold text-white">@Model.Name</h2>         
+}
+*@
+
+<script asp-location="Footer">
+    $(function () {
+        $(".accordion-content-panel").accordion({ collapsible: true, active: true, heightStyle: "content"  });
+        $(".accordion-content-panel > h3").click();
+        $(window).resize(function () {
+            $(".ui-accordion-content").removeAttr("style")
+        });
+    })
+</script>
+
+<div class="page blogpost-page">
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogPostPageTop, additionalData = Model })
+    <div class="page-title">
+        <h1>@Model.Name</h1>
+    </div>
+    <div class="page-body">
+        <div class="post-date">
+            @Model.CreatedOn.ToString("D")
+        </div>
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogPostPageBeforeBody, additionalData = Model })
+        <div class="post-body">
+            @Html.Raw(Model.Description)
+        </div>
+    </div>
+
+    <div class="fieldset new-comment" id="comments">
+        <div class="title">
+            <strong>@T("Blog.Comments.LeaveYourComment")</strong>
+        </div>
+        <div class="notifications">
+            <div asp-validation-summary="ModelOnly" class="message-error"></div>
+            @{
+                var result = TempData["nopstation.document.addcomment.result"] as string;
+            }
+            @if (!string.IsNullOrEmpty(result))
+            {
+                <div class="result">@result</div>
+            }
+        </div>
+
+        <form asp-route="Article" method="post">
+            <div class="form-fields">
+                <div class="inputs">
+                    <label asp-for="NewComment.CommentText" asp-postfix=":"></label>
+                    <textarea asp-for="NewComment.CommentText" class="enter-comment-text"></textarea>
+                    <span asp-validation-for="NewComment.CommentText"></span>
+                    <input type="hidden" asp-for ="Id" />
+                    <input type="hidden" asp-for="CategoryId" />
+                </div>
+
+            </div>
+            <div class="buttons">
+                <input type="submit" name="add-comment" class="button-1 blog-post-add-comment-button" value="@T("Blog.Comments.SubmitButton")" />
+            </div>
+        </form>
+    </div>
+
+    @if (Model.Comments.Count > 0)
+    {
+        <div class="comment-list">
+            <div class="title">
+                <strong>@T("Blog.Comments")</strong>
+            </div>
+            <div class="comments">
+                @foreach (var comment in Model.Comments)
+                {
+                    <div class="comment blog-comment">
+                        <div class="comment-info">
+                            <div class="user-info">
+                                <span class="username">@(comment.CustomerName)</span>
+                            </div>
+                        </div>
+                        <div class="comment-content">
+                            <div class="comment-time">
+                                <label>Created On:</label>
+                                <span class="stat-value">@comment.CreatedOn.ToString("g")</span>
+                            </div>
+                            <div class="comment-body">
+                                @Html.Raw(htmlFormatter.FormatText(comment.CommentText, false, true, false, false, false, false))
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

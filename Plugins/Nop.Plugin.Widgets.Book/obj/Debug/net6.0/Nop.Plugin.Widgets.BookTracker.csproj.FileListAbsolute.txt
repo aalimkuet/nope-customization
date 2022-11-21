@@ -1,3 +1,8 @@
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.csproj.AssemblyReference.cache
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.GeneratedMSBuildEditorConfig.editorconfig
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.AssemblyInfoInputs.cache
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.AssemblyInfo.cs
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.csproj.CoreCompileInputs.cache
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.BookTracker\logo.png
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.BookTracker\plugin.json
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.BookTracker\Views\Configure.cshtml
@@ -293,11 +298,6 @@ D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.BookTracker\refs\Sys
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.BookTracker\refs\System.Xml.XPath.dll
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.BookTracker\refs\System.Xml.XPath.XDocument.dll
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widgets.BookTracker\refs\WindowsBase.dll
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.csproj.AssemblyReference.cache
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.GeneratedMSBuildEditorConfig.editorconfig
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.AssemblyInfoInputs.cache
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.AssemblyInfo.cs
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.csproj.CoreCompileInputs.cache
 D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.csproj.CopyComplete
 D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\Nop.Plugin.Widgets.BookTracker.dll
 D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widgets.Book\obj\Debug\net6.0\refint\Nop.Plugin.Widgets.BookTracker.dll

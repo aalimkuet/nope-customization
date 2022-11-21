@@ -48,7 +48,7 @@ namespace Nop.Plugin.Payments.Stripe.Components
                 PostalCode = address?.ZipPostalCode ?? address?.ZipPostalCode,
             };
 
-            return View("~/Plugins/Payments.Stripe/Views/PaymentInfo.cshtml", model);
+            return View("~/Plugins/Payments.Stripe/Views/PaymentInfo.cshtml");
         }
 
         #endregion

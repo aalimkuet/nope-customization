@@ -11,7 +11,7 @@ namespace Nop.Plugin.Payments.Stripe.Models
 
         public ConfigurationModel()
         {
-           
+
         }
 
         #endregion

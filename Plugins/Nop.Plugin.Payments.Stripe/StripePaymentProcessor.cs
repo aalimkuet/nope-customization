@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Primitives;
+using MySqlX.XDevAPI.Common;
 using Nop.Core;
+using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Directory;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Payments;
-using Nop.Core.Domain.Shipping;
-using Nop.Plugin.Payments.Stripe.Services;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
 using Nop.Services.Configuration;
@@ -16,14 +15,12 @@ using Nop.Services.Localization;
 using Nop.Services.Orders;
 using Nop.Services.Payments;
 using Nop.Services.Plugins;
-using Nop.Services.Tax;
 using Stripe;
+using Stripe.Checkout;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
+using ProductService = Stripe.ProductService;
 
 namespace Nop.Plugin.Payments.Stripe
 {
@@ -34,69 +31,63 @@ namespace Nop.Plugin.Payments.Stripe
     {
         #region Fields
 
-        private readonly CurrencySettings _currencySettings;
         private readonly IAddressService _addressService;
-        private readonly ICheckoutAttributeParser _checkoutAttributeParser;
         private readonly ICountryService _countryService;
-        private readonly ICurrencyService _currencyService;
         private readonly ICustomerService _customerService;
-        private readonly IGenericAttributeService _genericAttributeService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ILocalizationService _localizationService;
-        private readonly IOrderService _orderService;
         private readonly IOrderTotalCalculationService _orderTotalCalculationService;
-        private readonly IProductService _productService;
         private readonly ISettingService _settingService;
         private readonly IStateProvinceService _stateProvinceService;
-        private readonly ITaxService _taxService;
         private readonly IWebHelper _webHelper;
-        private readonly StripeHttpClient _StripeHttpClient;
         private readonly StripePaymentSettings _StripePaymentSettings;
         private readonly IPaymentService _paymentService;
+        private readonly ICurrencyService _currencyService;
+        private readonly CurrencySettings _currencySettings;
+        private readonly IWorkContext _workContext;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IOrderService _orderService;
+        private readonly IProductService _productService;
+
 
         #endregion
 
         #region Ctor
 
-        public StripePaymentProcessor(CurrencySettings currencySettings,
+        public StripePaymentProcessor(
+
             IAddressService addressService,
-            ICheckoutAttributeParser checkoutAttributeParser,
             ICountryService countryService,
-            ICurrencyService currencyService,
             ICustomerService customerService,
-            IGenericAttributeService genericAttributeService,
-            IHttpContextAccessor httpContextAccessor,
             ILocalizationService localizationService,
-            IOrderService orderService,
             IOrderTotalCalculationService orderTotalCalculationService,
-            IProductService productService,
             ISettingService settingService,
             IStateProvinceService stateProvinceService,
-            ITaxService taxService,
             IWebHelper webHelper,
-            StripeHttpClient StripeHttpClient,
             StripePaymentSettings StripePaymentSettings,
-            IPaymentService paymentService)
+            IPaymentService paymentService,
+            ICurrencyService currencyService,
+            CurrencySettings currencySettings,
+            IWorkContext workContext,
+            IHttpContextAccessor httpContextAccessor,
+            IOrderService orderService,
+            IProductService productService)
         {
-            _currencySettings = currencySettings;
             _addressService = addressService;
-            _checkoutAttributeParser = checkoutAttributeParser;
             _countryService = countryService;
-            _currencyService = currencyService;
             _customerService = customerService;
-            _genericAttributeService = genericAttributeService;
-            _httpContextAccessor = httpContextAccessor;
             _localizationService = localizationService;
-            _orderService = orderService;
             _orderTotalCalculationService = orderTotalCalculationService;
-            _productService = productService;
             _settingService = settingService;
             _stateProvinceService = stateProvinceService;
-            _taxService = taxService;
             _webHelper = webHelper;
-            _StripeHttpClient = StripeHttpClient;
             _StripePaymentSettings = StripePaymentSettings;
             _paymentService = paymentService;
+            _currencyService = currencyService;
+            _currencySettings = currencySettings;
+            _workContext = workContext;
+            _httpContextAccessor = httpContextAccessor;
+            _orderService = orderService;
+            _productService = productService;
         }
 
         #endregion
@@ -208,6 +199,7 @@ namespace Nop.Plugin.Payments.Stripe
             var paymentRequest = new ProcessPaymentRequest();
 
             if (form.TryGetValue("stripeToken", out StringValues stripeToken) && !StringValues.IsNullOrEmpty(stripeToken))
+
                 paymentRequest.CustomValues.Add(await _localizationService.GetResourceAsync("Plugins.Payments.Stripe.Fields.StripeToken.Key"), stripeToken.ToString());
 
             return await Task.FromResult(paymentRequest);
@@ -233,60 +225,178 @@ namespace Nop.Plugin.Payments.Stripe
             //or hide this payment method if current customer is from certain country
             return Task.FromResult(false);
         }
-
         public Task PostProcessPaymentAsync(PostProcessPaymentRequest postProcessPaymentRequest)
         {
+            StripeConfiguration.ApiKey = _StripePaymentSettings.SecretKey;
+
+            var orderItems = _orderService.GetOrderItemsAsync(postProcessPaymentRequest.Order.Id).Result;
+
+            var products = new List<string>();
+
+            var LineItems = new List<SessionLineItemOptions>();
+
+            foreach (var orderItem in orderItems)
+            {
+                var productItem = _productService.GetProductByIdAsync(orderItem.ProductId).Result;
+                var orderCurrency = _workContext.GetWorkingCurrencyAsync().Result;
+
+                var product = new ProductCreateOptions
+                {
+                    Name = productItem.Name,
+                    //Description = productItem.ShortDescription,
+                    //Shippable = productItem.IsShipEnabled
+                };
+                var productId = new ProductService().Create(product).Id;
+                var price = new PriceCreateOptions
+                {
+                    UnitAmount = (long?)productItem.BasepriceAmount*100,
+                    Currency = orderCurrency.CurrencyCode,
+                    Product = productId,
+                };
+                var PriceID = new PriceService().Create(price).Id;
+               
+                var lineItem = new SessionLineItemOptions()
+                {
+                   // Name = productItem.Name,
+                   Amount = (long?)productItem.BasepriceAmount,
+                    //Currency = orderCurrency.CurrencyCode,
+                    //Description = productItem.ShortDescription,
+                    Price = PriceID,
+                    Quantity = orderItem.Quantity
+                };
+
+                LineItems.Add(lineItem);
+            }
+
+            //var prices = new List<string>();
+            //foreach (var product in products)
+            //{
+            //    var price = new PriceCreateOptions
+            //    {
+            //        UnitAmount = 2000,
+            //        Currency = "usd",                    
+            //        Product = product,
+            //    };               
+            //    var PriceID = new PriceService().Create(price).Id;
+            //    prices.Add(PriceID);
+            //}
+
+            //var prices = new PriceCreateOptions
+            //{
+            //    UnitAmount = 2000,
+            //    Currency = "usd",
+            //    //Recurring = new PriceRecurringOptions
+            //    //{
+            //    //    Interval = "month",
+            //    //},
+            //    Product = ProductId,
+            //};
+            //var service = new PriceService();
+            //var PriceID = new PriceService().Create(prices).Id;
+
+
+            //foreach (var item in orderItems)
+            //{
+            //    var productItem = _productService.GetProductByIdAsync(item.ProductId).Result;
+            //        var orderCurrency = _workContext.GetWorkingCurrencyAsync().Result;
+            //    var lineItem = new SessionLineItemOptions()
+            //    {
+            //        Name = productItem.Name,
+            //        Amount = (long?)productItem.BasepriceAmount,
+            //        Currency = orderCurrency.CurrencyCode,
+            //        Description = productItem.ShortDescription,
+            //        Price = 
+            //    };
+            //}
+
+            var Sessions = new SessionCreateOptions
+            {
+                SuccessUrl = "https://localhost:44369/Plugins/Payments.Stripe/Views/PaymentInfo.cshtml",
+                CancelUrl = "https://localhost:44369/Views/cancel.cshtml",
+                LineItems= LineItems, 
+                Mode = "payment",
+            };
+
+            var response = new SessionService().Create(Sessions);
+            _httpContextAccessor.HttpContext.Response.Redirect(response.Url);
             return Task.FromResult(new PostProcessPaymentRequest());
         }
 
-        public async Task<ProcessPaymentResult> ProcessPaymentAsync(ProcessPaymentRequest processPaymentRequest)
+        public Task<ProcessPaymentResult> ProcessPaymentAsync(ProcessPaymentRequest processPaymentRequest)
         {
-            //get customer
-            var customer = await _customerService.GetCustomerByIdAsync(processPaymentRequest?.CustomerId ?? 0);
-            if (customer == null)
-                throw new NopException("Customer cannot be loaded");
-
-            string tokenKey = await _localizationService.GetResourceAsync("Plugins.Payments.Stripe.Fields.StripeToken.Key");
-            if (!processPaymentRequest.CustomValues.TryGetValue(tokenKey, out object stripeTokenObj) || !(stripeTokenObj is string) || !IsStripeTokenID((string)stripeTokenObj))
-            {
-                throw new NopException("Card token not received");
-            }
-            string stripeToken = stripeTokenObj.ToString();
-            var service = new ChargeService();
-            var chargeOptions = new ChargeCreateOptions
-            {
-                Amount = (long)(processPaymentRequest.OrderTotal * 100),
-                Currency = "usd",
-                Description = string.Format(StripePaymentDefaults.PaymentNote, processPaymentRequest.OrderGuid),
-                Source = stripeToken
-            };
-
-            var address = _addressService.GetAddressByIdAsync(customer?.ShippingAddressId ?? 0).Result;
-            if (customer != null)
-            {
-                chargeOptions.Shipping = new ChargeShippingOptions
-                {
-                    Address = MapNopAddressToStripe(address),
-                    Phone = address.PhoneNumber,
-                    Name = address.FirstName + ' ' + address.LastName
-                };
-            }
-
-            var charge = service.Create(chargeOptions, GetStripeApiRequestOptions());
-
             var result = new ProcessPaymentResult();
-            if (charge.Status == "succeeded")
-            {
-                result.NewPaymentStatus = PaymentStatus.Paid;
-                result.AuthorizationTransactionId = charge.Id;
-                result.AuthorizationTransactionResult = $"Transaction was processed by using {charge?.Source.Object}. Status is {charge.Status}";
-                return await Task.FromResult(result);
-            }
-            else
-            {
-                throw new NopException($"Charge error: {charge.FailureMessage}");
-            }
+            return Task.FromResult(result);
         }
+        //public async Task<ProcessPaymentRequest> ProcessPaymentAsync(ProcessPaymentRequest processPaymentRequest)
+        //{
+        //    return await Task.FromResult(new ProcessPaymentRequest());
+
+        //    //get customer
+        //    //var customer = await _customerService.GetCustomerByIdAsync(processPaymentRequest?.CustomerId ?? 0);
+        //    //if (customer == null)
+        //    //    throw new NopException("Customer cannot be loaded");
+
+        //    //string tokenKey = _StripePaymentSettings.SecretKey; 
+        //    ////await _localizationService.GetResourceAsync("Plugins.Payments.Stripe.Fields.StripeToken.Key");
+
+        //    //if (!processPaymentRequest.CustomValues.TryGetValue(tokenKey, out object stripeTokenObj) || !(stripeTokenObj is string) || !IsStripeTokenID((string)stripeTokenObj))
+        //    //{
+        //    //    throw new NopException("Card token not received");
+        //    //}
+
+        //    //string stripeToken = stripeTokenObj.ToString();
+        //    //var service = new ChargeService();
+
+        //    //var currency = await _currencyService.GetCurrencyByIdAsync(_currencySettings.PrimaryStoreCurrencyId);
+        //    //if (currency == null)
+        //    //    throw new NopException("Primary store currency cannot be loaded");
+
+        //    //var orderCurrency = await _workContext.GetWorkingCurrencyAsync();
+        //    //if (orderCurrency == null)
+        //    //    throw new NopException("Customer currency cannot be loaded");
+
+        //    //var orderTotal = processPaymentRequest.OrderTotal;
+        //    //var orderCurrencyCode = orderCurrency.CurrencyCode;
+        //    //if (orderCurrency.Id != currency.Id)
+        //    //{
+        //    //    orderTotal = await _currencyService.ConvertCurrencyAsync(orderTotal, currency, orderCurrency);
+        //    //    orderCurrencyCode = orderCurrency.CurrencyCode;
+        //    //}
+        //    //var chargeOptions = new ChargeCreateOptions
+        //    //{
+        //    //    Amount = (long)(orderTotal * 100),
+        //    //    Currency = orderCurrencyCode,
+        //    //    Description = string.Format(StripePaymentDefaults.PaymentNote, processPaymentRequest.OrderGuid),
+        //    //    Source = stripeToken
+        //    //};
+
+        //    //var address = _addressService.GetAddressByIdAsync(customer?.ShippingAddressId ?? 0).Result;
+        //    //if (customer != null)
+        //    //{
+        //    //    chargeOptions.Shipping = new ChargeShippingOptions
+        //    //    {
+        //    //        Address = MapNopAddressToStripe(address),
+        //    //        Phone = address.PhoneNumber,
+        //    //        Name = address.FirstName + ' ' + address.LastName
+        //    //    };
+        //    //}
+
+        //    //var charge = service.Create(chargeOptions, GetStripeApiRequestOptions());
+
+        //    //var result = new ProcessPaymentResult();
+        //    //if (charge.Status == "succeeded")
+        //    //{
+        //    //    result.NewPaymentStatus = PaymentStatus.Paid;
+        //    //    result.AuthorizationTransactionId = charge.Id;
+        //    //    result.AuthorizationTransactionResult = $"Transaction was processed by using {charge?.Source.Object}. Status is {charge.Status}";
+
+        //    //    return await Task.FromResult(result);
+        //    //}
+        //    //else
+        //    //{
+        //    //    throw new NopException($"Charge error: {charge.FailureMessage}");
+        //    //}
+        //}
 
         /// <summary>
         /// Process recurring payment
@@ -298,7 +408,7 @@ namespace Nop.Plugin.Payments.Stripe
         /// </returns>
         public Task<ProcessPaymentResult> ProcessRecurringPaymentAsync(ProcessPaymentRequest processPaymentRequest)
         {
-            return Task.FromResult(new ProcessPaymentResult { Errors = new[] { "Recurring payment not supported" } });
+            return Task.FromResult(new ProcessPaymentResult { Errors = new[] { "Recurring payment not supported" } }); 
         }
 
         /// <summary>
@@ -368,7 +478,7 @@ namespace Nop.Plugin.Payments.Stripe
         {
             //settings
             //settings
-           await _settingService.SaveSettingAsync(new StripePaymentSettings
+            await _settingService.SaveSettingAsync(new StripePaymentSettings
             {
                 AdditionalFee = 0,
                 AdditionalFeePercentage = false
@@ -376,14 +486,16 @@ namespace Nop.Plugin.Payments.Stripe
 
 
             //locales            
-           await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.SecretKey", "Secret key, live or test (starts with sk_)");
+            await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.SecretKey", "Secret key, live or test (starts with sk_)");
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.PublishableKey", "Publishable key, live or test (starts with pk_)");
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.AdditionalFee", "Additional fee");
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.AdditionalFee.Hint", "Enter additional fee to charge your customers.");
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.AdditionalFeePercentage", "Additional fee. Use percentage");
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.StripeToken.Key", "Stripe Token");
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.AdditionalFeePercentage.Hint", "Determines whether to apply a percentage additional fee to the order total. If not enabled, a fixed value is used.");
-           await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Instructions", @"
+            await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.paymentmethoddescription", "Pay by Stripe Payment System");
+            await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.RedirectionTip", "This page will be redrected to the stripe payment gatway");
+            await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Instructions", @"
                 <p>
                      For plugin configuration follow these steps:<br />
                     <br />
@@ -397,7 +509,7 @@ namespace Nop.Plugin.Payments.Stripe
                     use these <a href='https://stripe.com/docs/testing'>test card numbers from Stripe</a>.</em><br />
                 </p>");
 
-      
+
             await base.InstallAsync();
         }
 
@@ -504,6 +616,8 @@ namespace Nop.Plugin.Payments.Stripe
             return Task.FromResult(new ProcessPaymentRequest());
         }
 
+
+
         #endregion
 
         #region Properties
@@ -516,12 +630,12 @@ namespace Nop.Plugin.Payments.Stripe
         /// <summary>
         /// Gets a value indicating whether partial refund is supported
         /// </summary>
-        public bool SupportPartiallyRefund => false;
+        public bool SupportPartiallyRefund => true;
 
         /// <summary>
         /// Gets a value indicating whether refund is supported
         /// </summary>
-        public bool SupportRefund => false;
+        public bool SupportRefund => true;
 
         /// <summary>
         /// Gets a value indicating whether void is supported
@@ -542,6 +656,7 @@ namespace Nop.Plugin.Payments.Stripe
         /// Gets a value indicating whether we should display a payment information page for this plugin
         /// </summary>
         public bool SkipPaymentInfo => false;
+        public string PaymentMethodDescription => "Stripe";
 
         #endregion
     }

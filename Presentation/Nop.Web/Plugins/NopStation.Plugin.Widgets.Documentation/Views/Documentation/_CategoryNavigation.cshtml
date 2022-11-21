@@ -1,0 +1,34 @@
+﻿@model CategoryOverviewModel
+
+@{
+    var liClass = Model.Selected ? "active" : "inactive";
+}
+
+<li class="@liClass">
+    <a href="@Url.RouteUrl("DocumentCategory", new { SeName = Model.SeName })">
+        @Model.Name
+    </a>
+
+    @if (Model.SubCategoryList.Any())
+    {
+        <ul class="sublist">
+            @foreach (var subCategory in Model.SubCategoryList)
+            {
+                @await Html.PartialAsync("_CategoryNavigation", subCategory);
+            }
+        </ul>
+    }
+    @if (Model.ArticleList.Count > 0)
+    {
+        <ol class="sublist">
+            @foreach (var article in Model.ArticleList)
+            {
+                <li class=@(article.Selected ? "active" : "inactive")>
+                    <a href="@Url.RouteUrl("DocumentArticle", new { SeName = article.SeName, categoryId = article.CategoryId })">
+                        @article.Name
+                    </a>
+                </li>
+            }
+        </ol>
+    }
+</li>

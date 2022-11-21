@@ -1,0 +1,20 @@
+﻿@model DocumentationModel
+
+@{
+    Layout = "_ColumnsTwo";
+    NopHtml.AppendPageCssClassParts("html-documentation-page");
+    
+    NopHtml.AddCssFileParts("/Plugins/NopStation.Plugin.Widgets.Documentation/Themes/DefaultClean/contents/css/styles.css", string.Empty);
+    NopHtml.AppendScriptParts(ResourceLocation.Footer, "/Plugins/NopStation.Plugin.Widgets.Documentation/Themes/DefaultClean/contents/js/script.js");
+}
+
+@section left {
+    @await Component.InvokeAsync("DocumentationCategory", new { categoryId = 0, articleId = 0 })
+}
+@*
+@section heading {
+    <h2 class="temporari-heading text-uppercase font-bold text-white">@T("NopStation.Documentation.HomepageTitle")</h2>         
+}
+*@
+
+@Html.Raw(Model.HomepageText) 

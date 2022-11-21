@@ -20,7 +20,7 @@ namespace Nop.Plugin.Payments.Stripe
         /// User agent used for requesting Stripe services
         /// </summary>
         public static string UserAgent => "Stripe-connect-nopCommerce-0.1";
-        
+
         /// <summary>
         /// Path to the Stripe payment form js script
         /// </summary>

@@ -43,6 +43,6 @@ namespace Nop.Plugin.Payments.Stripe
         public string SecretKey { get; set; }
         public string PublishableKey { get; set; }
 
-        
+
     }
 }

@@ -1,3 +1,8 @@
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.csproj.AssemblyReference.cache
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.GeneratedMSBuildEditorConfig.editorconfig
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.AssemblyInfoInputs.cache
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.AssemblyInfo.cs
+D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.csproj.CoreCompileInputs.cache
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widget.MyWidget\logo.jpg
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widget.MyWidget\plugin.json
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widget.MyWidget\Views\Configure.cshtml
@@ -294,11 +299,6 @@ D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widget.MyWidget\refs\System.
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widget.MyWidget\refs\System.Xml.XPath.dll
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widget.MyWidget\refs\System.Xml.XPath.XDocument.dll
 D:\BS23\nopCommerce_v1\Presentation\Nop.Web\Plugins\Widget.MyWidget\refs\WindowsBase.dll
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.csproj.AssemblyReference.cache
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.GeneratedMSBuildEditorConfig.editorconfig
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.AssemblyInfoInputs.cache
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.AssemblyInfo.cs
-D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.csproj.CoreCompileInputs.cache
 D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.csproj.CopyComplete
 D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\Nop.Plugin.Widget.MyWidget.dll
 D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.Widget.MyWidget\obj\Debug\net6.0\refint\Nop.Plugin.Widget.MyWidget.dll
