@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Nop.Core;
 using Nop.Core.Domain.Orders;
 using Nop.Plugin.Payments.Stripe.Models;
@@ -15,8 +19,6 @@ using Nop.Web.Framework;
 using Nop.Web.Framework.Controllers;
 using Nop.Web.Framework.Mvc.Filters;
 using Stripe;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace Nop.Plugin.Payments.Stripe.Controllers
 {
@@ -139,27 +141,79 @@ namespace Nop.Plugin.Payments.Stripe.Controllers
 
         // This is your Stripe CLI webhook secret for testing your endpoint locally.
 
-        const string endpointSecret = "whsec_8157644fd875bff8eae20647c5a3c91173bc78f19ecdc37868e8a1575dec2350";
-
-        [HttpPost("WebhookRequest")]
+        [HttpPost]
         public async Task<IActionResult> HandleWebhook()
         {
             var json = await new StreamReader(_httpContextAccessor.HttpContext.Request.Body).ReadToEndAsync();
             try
             {
-                var stripeEvent = EventUtility.ConstructEvent(json, _httpContextAccessor.HttpContext.Request.Headers["Stripe-Signature"], endpointSecret);
+                var stripeEvent = EventUtility.ConstructEvent
+                    (
+                    json,
+                    _httpContextAccessor.HttpContext.Request.Headers["stripe-signature"],
+                    _stripePaymentSettings.SecretKey
+                    );
 
                 // Handle the event
-                //Console.WriteLine("Unhandled event type: {0}", stripeEvent.Type);
+
+                var test = "payment_intent.succeeded";
+                //switch(stripeEvent.Type)
+                switch (test)
+                {
+                    case "payment_intent.succeeded":
+
+                        var orderNumberGuid = Guid.Empty;
+                        try
+                        {
+                            WebhookResponse1 rootJson = JsonConvert.DeserializeObject<WebhookResponse1>(json);
+                            orderNumberGuid = new Guid(rootJson.ResponseData.ResponseObject.Client_reference_id);
+                        }
+                        catch
+                        {
+                            // ignored
+                        }
+                        // Fulfil the customer's purchase
+
+                        var order = await _orderService.GetOrderByGuidAsync(orderNumberGuid);
+
+                        //mark order as paid
+                        order.AuthorizationTransactionId = ""; // transaction Id 
+
+                        await _orderService.UpdateOrderAsync(order);
+                        await _orderProcessingService.MarkOrderAsPaidAsync(order);
+
+                        break;
+                    case "payment_intent.payment_failed":
+
+                        // Notify the customer that payment failed
+                        View($"{_webHelper.GetStoreLocation().TrimEnd('/')}/PaymentStripe/CancelUrl");
+
+                        break;
+                    default:
+                        // Handle other event types
+
+                        break;
+                }
 
                 return Ok();
             }
-            catch (StripeException e)
+            catch (StripeException)
             {
                 return BadRequest();
             }
         }
 
+        [HttpGet]
+        public IActionResult SuccessUrl()
+        {
+            return View("~/Plugins/Payments.Stripe/Views/Success.cshtml");
+
+        }
+        [HttpGet]
+        public IActionResult CancelUrl()
+        {
+            return View("~/Plugins/Payments.Stripe/Views/Cancel.cshtml");
+        }
         #endregion
     }
 }

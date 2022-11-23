@@ -14126,11 +14126,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Payments.CheckMoneyOrder\\Nop.Plugin.Payments.CheckMoneyOrder.csproj",
+      "projectUniqueName": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Payments.CheckMoneyOrder\\Nop.Plugin.Payments.CheckMoneyOrder.csproj",
       "projectName": "Nop.Plugin.Payments.CheckMoneyOrder",
-      "projectPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Payments.CheckMoneyOrder\\Nop.Plugin.Payments.CheckMoneyOrder.csproj",
+      "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Payments.CheckMoneyOrder\\Nop.Plugin.Payments.CheckMoneyOrder.csproj",
       "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-      "outputPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Payments.CheckMoneyOrder\\obj\\",
+      "outputPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Payments.CheckMoneyOrder\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -14147,8 +14147,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-              "projectPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+            "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+              "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
             }
           }
         }

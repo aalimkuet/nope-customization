@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj": {}
+    "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj": {}
   },
   "projects": {
-    "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+    "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj": {
       "version": "4.5.0",
       "restore": {
-        "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj",
+        "projectUniqueName": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj",
         "projectName": "Nop.Core",
-        "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj",
+        "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj",
         "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-        "outputPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\obj\\",
+        "outputPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -121,14 +121,14 @@
         }
       }
     },
-    "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+    "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Data\\Nop.Data.csproj": {
       "version": "4.5.0",
       "restore": {
-        "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\Nop.Data.csproj",
+        "projectUniqueName": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Data\\Nop.Data.csproj",
         "projectName": "Nop.Data",
-        "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\Nop.Data.csproj",
+        "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Data\\Nop.Data.csproj",
         "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-        "outputPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\obj\\",
+        "outputPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -145,8 +145,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj"
               }
             }
           }
@@ -210,14 +210,14 @@
         }
       }
     },
-    "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+    "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Services\\Nop.Services.csproj": {
       "version": "4.5.0",
       "restore": {
-        "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Services\\Nop.Services.csproj",
+        "projectUniqueName": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Services\\Nop.Services.csproj",
         "projectName": "Nop.Services",
-        "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Services\\Nop.Services.csproj",
+        "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Services\\Nop.Services.csproj",
         "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-        "outputPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Services\\obj\\",
+        "outputPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -234,11 +234,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj"
               },
-              "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\Nop.Data.csproj": {
-                "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\Nop.Data.csproj"
+              "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+                "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Data\\Nop.Data.csproj"
               }
             }
           }
@@ -310,14 +310,14 @@
         }
       }
     },
-    "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj": {
+    "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj",
+        "projectUniqueName": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj",
         "projectName": "Nop.Plugin.Shipping.FixedByWeightByTotal",
-        "projectPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj",
+        "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj",
         "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-        "outputPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\obj\\",
+        "outputPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Shipping.FixedByWeightByTotal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -334,8 +334,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-                "projectPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+              "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+                "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
               }
             }
           }
@@ -369,14 +369,14 @@
         }
       }
     },
-    "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+    "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
       "version": "4.5.0",
       "restore": {
-        "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
+        "projectUniqueName": "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
         "projectName": "Nop.Web.Framework",
-        "projectPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
+        "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
         "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-        "outputPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web.Framework\\obj\\",
+        "outputPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web.Framework\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -393,14 +393,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Core\\Nop.Core.csproj"
               },
-              "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\Nop.Data.csproj": {
-                "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Data\\Nop.Data.csproj"
+              "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+                "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Data\\Nop.Data.csproj"
               },
-              "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Services\\Nop.Services.csproj": {
-                "projectPath": "D:\\BS23\\nopCommerce_v1\\Libraries\\Nop.Services\\Nop.Services.csproj"
+              "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+                "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Libraries\\Nop.Services\\Nop.Services.csproj"
               }
             }
           }

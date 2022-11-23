@@ -19,6 +19,7 @@ using Stripe;
 using Stripe.Checkout;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ProductService = Stripe.ProductService;
 
@@ -225,101 +226,72 @@ namespace Nop.Plugin.Payments.Stripe
             //or hide this payment method if current customer is from certain country
             return Task.FromResult(false);
         }
-        public Task PostProcessPaymentAsync(PostProcessPaymentRequest postProcessPaymentRequest)
+        public async Task PostProcessPaymentAsync(PostProcessPaymentRequest postProcessPaymentRequest)
         {
             StripeConfiguration.ApiKey = _StripePaymentSettings.SecretKey;
 
-            var orderItems = _orderService.GetOrderItemsAsync(postProcessPaymentRequest.Order.Id).Result;
-
-            var products = new List<string>();
-
-            var LineItems = new List<SessionLineItemOptions>();
-
+            var orderItems = await _orderService.GetOrderItemsAsync(postProcessPaymentRequest.Order.Id);
+            var lineItems = new List<SessionLineItemOptions>();
+            //var products = new List<Core.Domain.Catalog.Product>();
+            //var products = _productService.GetProductsByIdsAsync();
             foreach (var orderItem in orderItems)
             {
-                var productItem = _productService.GetProductByIdAsync(orderItem.ProductId).Result;
-                var orderCurrency = _workContext.GetWorkingCurrencyAsync().Result;
+                var productItem = await _productService.GetProductByIdAsync(orderItem.ProductId);
+                var orderCurrency = await _workContext.GetWorkingCurrencyAsync();
 
                 var product = new ProductCreateOptions
                 {
                     Name = productItem.Name,
-                    //Description = productItem.ShortDescription,
-                    //Shippable = productItem.IsShipEnabled
+                    Description = productItem.ShortDescription,
                 };
                 var productId = new ProductService().Create(product).Id;
                 var price = new PriceCreateOptions
                 {
-                    UnitAmount = (long?)productItem.BasepriceAmount*100,
+                    UnitAmount = (long?)postProcessPaymentRequest.Order.OrderTotal * 100,
                     Currency = orderCurrency.CurrencyCode,
                     Product = productId,
                 };
-                var PriceID = new PriceService().Create(price).Id;
-               
+                var priceId = new PriceService().Create(price).Id;
                 var lineItem = new SessionLineItemOptions()
                 {
-                   // Name = productItem.Name,
-                   Amount = (long?)productItem.BasepriceAmount,
-                    //Currency = orderCurrency.CurrencyCode,
-                    //Description = productItem.ShortDescription,
-                    Price = PriceID,
+                    Price = priceId,
                     Quantity = orderItem.Quantity
                 };
-
-                LineItems.Add(lineItem);
+                lineItems.Add(lineItem);
             }
 
-            //var prices = new List<string>();
-            //foreach (var product in products)
-            //{
-            //    var price = new PriceCreateOptions
-            //    {
-            //        UnitAmount = 2000,
-            //        Currency = "usd",                    
-            //        Product = product,
-            //    };               
-            //    var PriceID = new PriceService().Create(price).Id;
-            //    prices.Add(PriceID);
-            //}
-
-            //var prices = new PriceCreateOptions
-            //{
-            //    UnitAmount = 2000,
-            //    Currency = "usd",
-            //    //Recurring = new PriceRecurringOptions
-            //    //{
-            //    //    Interval = "month",
-            //    //},
-            //    Product = ProductId,
-            //};
-            //var service = new PriceService();
-            //var PriceID = new PriceService().Create(prices).Id;
-
-
-            //foreach (var item in orderItems)
-            //{
-            //    var productItem = _productService.GetProductByIdAsync(item.ProductId).Result;
-            //        var orderCurrency = _workContext.GetWorkingCurrencyAsync().Result;
-            //    var lineItem = new SessionLineItemOptions()
-            //    {
-            //        Name = productItem.Name,
-            //        Amount = (long?)productItem.BasepriceAmount,
-            //        Currency = orderCurrency.CurrencyCode,
-            //        Description = productItem.ShortDescription,
-            //        Price = 
-            //    };
-            //}
-
-            var Sessions = new SessionCreateOptions
+            var options = new PaymentIntentCreateOptions
             {
-                SuccessUrl = "https://localhost:44369/Plugins/Payments.Stripe/Views/PaymentInfo.cshtml",
-                CancelUrl = "https://localhost:44369/Views/cancel.cshtml",
-                LineItems= LineItems, 
-                Mode = "payment",
+                Amount = 2000,
+                Currency = "usd",
+                Metadata = new Dictionary<string, string>
+                {
+                    { "OrderId", postProcessPaymentRequest.Order.OrderGuid.ToString() },
+                },
+                PaymentMethodTypes = new List<string>
+                  {
+                    "card",
+                  },
+            };
+            var service = new PaymentIntentService();
+            service.Create(options);
+
+            var sessions = new SessionCreateOptions
+            {
+                SuccessUrl = SuccesUrl,
+                CancelUrl = CancelUrl,
+                LineItems = lineItems,
+                Mode = Mode,
+                Metadata = new Dictionary<string, string>
+                {
+                    { "OrderId", postProcessPaymentRequest.Order.OrderGuid.ToString() },
+                }
+                //ClientReferenceId = postProcessPaymentRequest.Order.OrderGuid.ToString(),
             };
 
-            var response = new SessionService().Create(Sessions);
+            var response = new SessionService().Create(sessions);
             _httpContextAccessor.HttpContext.Response.Redirect(response.Url);
-            return Task.FromResult(new PostProcessPaymentRequest());
+            return;
         }
 
         public Task<ProcessPaymentResult> ProcessPaymentAsync(ProcessPaymentRequest processPaymentRequest)
@@ -327,76 +299,6 @@ namespace Nop.Plugin.Payments.Stripe
             var result = new ProcessPaymentResult();
             return Task.FromResult(result);
         }
-        //public async Task<ProcessPaymentRequest> ProcessPaymentAsync(ProcessPaymentRequest processPaymentRequest)
-        //{
-        //    return await Task.FromResult(new ProcessPaymentRequest());
-
-        //    //get customer
-        //    //var customer = await _customerService.GetCustomerByIdAsync(processPaymentRequest?.CustomerId ?? 0);
-        //    //if (customer == null)
-        //    //    throw new NopException("Customer cannot be loaded");
-
-        //    //string tokenKey = _StripePaymentSettings.SecretKey; 
-        //    ////await _localizationService.GetResourceAsync("Plugins.Payments.Stripe.Fields.StripeToken.Key");
-
-        //    //if (!processPaymentRequest.CustomValues.TryGetValue(tokenKey, out object stripeTokenObj) || !(stripeTokenObj is string) || !IsStripeTokenID((string)stripeTokenObj))
-        //    //{
-        //    //    throw new NopException("Card token not received");
-        //    //}
-
-        //    //string stripeToken = stripeTokenObj.ToString();
-        //    //var service = new ChargeService();
-
-        //    //var currency = await _currencyService.GetCurrencyByIdAsync(_currencySettings.PrimaryStoreCurrencyId);
-        //    //if (currency == null)
-        //    //    throw new NopException("Primary store currency cannot be loaded");
-
-        //    //var orderCurrency = await _workContext.GetWorkingCurrencyAsync();
-        //    //if (orderCurrency == null)
-        //    //    throw new NopException("Customer currency cannot be loaded");
-
-        //    //var orderTotal = processPaymentRequest.OrderTotal;
-        //    //var orderCurrencyCode = orderCurrency.CurrencyCode;
-        //    //if (orderCurrency.Id != currency.Id)
-        //    //{
-        //    //    orderTotal = await _currencyService.ConvertCurrencyAsync(orderTotal, currency, orderCurrency);
-        //    //    orderCurrencyCode = orderCurrency.CurrencyCode;
-        //    //}
-        //    //var chargeOptions = new ChargeCreateOptions
-        //    //{
-        //    //    Amount = (long)(orderTotal * 100),
-        //    //    Currency = orderCurrencyCode,
-        //    //    Description = string.Format(StripePaymentDefaults.PaymentNote, processPaymentRequest.OrderGuid),
-        //    //    Source = stripeToken
-        //    //};
-
-        //    //var address = _addressService.GetAddressByIdAsync(customer?.ShippingAddressId ?? 0).Result;
-        //    //if (customer != null)
-        //    //{
-        //    //    chargeOptions.Shipping = new ChargeShippingOptions
-        //    //    {
-        //    //        Address = MapNopAddressToStripe(address),
-        //    //        Phone = address.PhoneNumber,
-        //    //        Name = address.FirstName + ' ' + address.LastName
-        //    //    };
-        //    //}
-
-        //    //var charge = service.Create(chargeOptions, GetStripeApiRequestOptions());
-
-        //    //var result = new ProcessPaymentResult();
-        //    //if (charge.Status == "succeeded")
-        //    //{
-        //    //    result.NewPaymentStatus = PaymentStatus.Paid;
-        //    //    result.AuthorizationTransactionId = charge.Id;
-        //    //    result.AuthorizationTransactionResult = $"Transaction was processed by using {charge?.Source.Object}. Status is {charge.Status}";
-
-        //    //    return await Task.FromResult(result);
-        //    //}
-        //    //else
-        //    //{
-        //    //    throw new NopException($"Charge error: {charge.FailureMessage}");
-        //    //}
-        //}
 
         /// <summary>
         /// Process recurring payment
@@ -408,35 +310,38 @@ namespace Nop.Plugin.Payments.Stripe
         /// </returns>
         public Task<ProcessPaymentResult> ProcessRecurringPaymentAsync(ProcessPaymentRequest processPaymentRequest)
         {
-            return Task.FromResult(new ProcessPaymentResult { Errors = new[] { "Recurring payment not supported" } }); 
+            return Task.FromResult(new ProcessPaymentResult { Errors = new[] { "Recurring payment not supported" } });
         }
 
         /// <summary>
-        /// Full or partial refund
+        /// Refunds a payment
         /// </summary>
-        /// <param name="refundPaymentRequest"></param>
-        /// <returns></returns>
-        public RefundPaymentResult Refund(RefundPaymentRequest refundPaymentRequest)
+        /// <param name="refundPaymentRequest">Request</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the result
+        /// </returns>
+        public Task<RefundPaymentResult> RefundAsync(RefundPaymentRequest refundPaymentRequest)
         {
-            string chargeID = refundPaymentRequest.Order.AuthorizationTransactionId;
+            string chargeId = refundPaymentRequest.Order.AuthorizationTransactionId;
             var orderAmtRemaining = refundPaymentRequest.Order.OrderTotal - refundPaymentRequest.AmountToRefund;
             bool isPartialRefund = orderAmtRemaining > 0;
 
-            if (!IsChargeID(chargeID))
+            if (!IsChargeID(chargeId))
             {
-                throw new NopException($"Refund error: {chargeID} is not a Stripe Charge ID. Refund cancelled");
+                throw new NopException($"Refund error: {chargeId} is not a Stripe Charge ID. Refund cancelled");
             }
+
             var service = new RefundService();
             var refundOptions = new RefundCreateOptions
             {
-                Charge = chargeID,
+                Charge = chargeId,
                 Amount = (long)(refundPaymentRequest.AmountToRefund * 100),
                 Reason = RefundReasons.RequestedByCustomer
             };
             var refund = service.Create(refundOptions, GetStripeApiRequestOptions());
 
             RefundPaymentResult result = new RefundPaymentResult();
-
             switch (refund.Status)
             {
                 case "succeeded":
@@ -451,7 +356,7 @@ namespace Nop.Plugin.Payments.Stripe
                 default:
                     throw new NopException("Refund returned a status of ${refund.Status}");
             }
-            return result;
+            return Task.FromResult(result);
         }
 
         public IList<string> ValidatePaymentForm(IFormCollection form)
@@ -496,18 +401,18 @@ namespace Nop.Plugin.Payments.Stripe
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.paymentmethoddescription", "Pay by Stripe Payment System");
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Fields.RedirectionTip", "This page will be redrected to the stripe payment gatway");
             await _localizationService.AddOrUpdateLocaleResourceAsync("Plugins.Payments.Stripe.Instructions", @"
-                <p>
-                     For plugin configuration follow these steps:<br />
-                    <br />
-                    1. If you haven't already, create an account on Stripe.com and sign in<br />
-                    2. In the Developers menu (left), choose the API Keys option.
-                    3. You will see two keys listed, a Publishable key and a Secret key. You will need both. (If you'd like, you can create and use a set of restricted keys. That topic isn't covered here.)
-                    <em>Stripe supports test keys and production keys. Use whichever pair is appropraite. There's no switch between test/sandbox and proudction other than using the appropriate keys.</em>
-                    4. Paste these keys into the configuration page of this plug-in. (Both keys are required.) 
-                    <br />
-                    <em>Note: If using production keys, the payment form will only work on sites hosted with HTTPS. (Test keys can be used on http sites.) If using test keys, 
-                    use these <a href='https://stripe.com/docs/testing'>test card numbers from Stripe</a>.</em><br />
-                </p>");
+				<p>
+					 For plugin configuration follow these steps:<br />
+					<br />
+					1. If you haven't already, create an account on Stripe.com and sign in<br />
+					2. In the Developers menu (left), choose the API Keys option.
+					3. You will see two keys listed, a Publishable key and a Secret key. You will need both. (If you'd like, you can create and use a set of restricted keys. That topic isn't covered here.)
+					<em>Stripe supports test keys and production keys. Use whichever pair is appropraite. There's no switch between test/sandbox and proudction other than using the appropriate keys.</em>
+					4. Paste these keys into the configuration page of this plug-in. (Both keys are required.) 
+					<br />
+					<em>Note: If using production keys, the payment form will only work on sites hosted with HTTPS. (Test keys can be used on http sites.) If using test keys, 
+					use these <a href='https://stripe.com/docs/testing'>test card numbers from Stripe</a>.</em><br />
+				</p>");
 
 
             await base.InstallAsync();
@@ -565,19 +470,6 @@ namespace Nop.Plugin.Payments.Stripe
         }
 
         /// <summary>
-        /// Refunds a payment
-        /// </summary>
-        /// <param name="refundPaymentRequest">Request</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the result
-        /// </returns>
-        public Task<RefundPaymentResult> RefundAsync(RefundPaymentRequest refundPaymentRequest)
-        {
-            return Task.FromResult(new RefundPaymentResult { Errors = new[] { "Refund method not supported" } });
-        }
-
-        /// <summary>
         /// Voids a payment
         /// </summary>
         /// <param name="voidPaymentRequest">Request</param>
@@ -615,8 +507,6 @@ namespace Nop.Plugin.Payments.Stripe
         {
             return Task.FromResult(new ProcessPaymentRequest());
         }
-
-
 
         #endregion
 
@@ -657,6 +547,10 @@ namespace Nop.Plugin.Payments.Stripe
         /// </summary>
         public bool SkipPaymentInfo => false;
         public string PaymentMethodDescription => "Stripe";
+
+        public string SuccesUrl => $"{_webHelper.GetStoreLocation().TrimEnd('/')}/PaymentStripe/SuccessUrl";
+        public string CancelUrl => $"{_webHelper.GetStoreLocation().TrimEnd('/')}/PaymentStripe/CancelUrl";
+        public string Mode => "payment";
 
         #endregion
     }

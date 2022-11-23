@@ -16,7 +16,10 @@
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="PaymentInfo.cshtml" />
+    <None Remove="Views\Cancel.cshtml" />
     <None Remove="Views\PaymentInfo.cshtml" />
+    <None Remove="Views\Success.cshtml" />
     <None Remove="Views\_ViewImports.cshtml" />
   </ItemGroup>
 
@@ -26,6 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Views\Cancel.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Success.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\PaymentInfo.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

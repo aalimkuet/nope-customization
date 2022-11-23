@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Nop.Plugin.ExchangeRate.EcbExchange
-build_property.ProjectDir = D:\BS23\nopCommerce_v1\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\
+build_property.ProjectDir = D:\BS23\Nop\nopCommerce-Prev\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5G29c0DEiC1z/WlBMYwdYjbgPgzZtyxt461DylU3y3WGliE1rozHTFB7bjEDavntdO157mMvIdk0o8AYSOkXqg==",
+  "dgSpecHash": "K5PWRd9v4sreX4NSIv2dd0MyfNQoejDxBOP2XTez3ovpOaVHTwkhsaKJRfVPu6aomFUUWukoAs9RUPjJJr6sTg==",
   "success": true,
-  "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Widget.MyWidget\\Nop.Plugin.Widget.MyWidget.csproj",
+  "projectFilePath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Widget.MyWidget\\Nop.Plugin.Widget.MyWidget.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BS1054\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

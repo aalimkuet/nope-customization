@@ -16846,11 +16846,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Widgets.FacebookPixel\\Nop.Plugin.Widgets.FacebookPixel.csproj",
+      "projectUniqueName": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Widgets.FacebookPixel\\Nop.Plugin.Widgets.FacebookPixel.csproj",
       "projectName": "Nop.Plugin.Widgets.FacebookPixel",
-      "projectPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Widgets.FacebookPixel\\Nop.Plugin.Widgets.FacebookPixel.csproj",
+      "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Widgets.FacebookPixel\\Nop.Plugin.Widgets.FacebookPixel.csproj",
       "packagesPath": "C:\\Users\\BS1054\\.nuget\\packages\\",
-      "outputPath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Widgets.FacebookPixel\\obj\\",
+      "outputPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Widgets.FacebookPixel\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BS1054\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -16867,8 +16867,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Nop.Web.csproj": {
-              "projectPath": "D:\\BS23\\nopCommerce_v1\\Presentation\\Nop.Web\\Nop.Web.csproj"
+            "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web\\Nop.Web.csproj": {
+              "projectPath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Presentation\\Nop.Web\\Nop.Web.csproj"
             }
           }
         }

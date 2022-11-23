@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uxGw11Dh7pxuq1jAcd050H55tBMxfEp60TGtzoaubKZKILtYm75b0jvojc0I/UaVI7SwZ7KE2ne7FAH08oG+bg==",
+  "dgSpecHash": "k1ikRxoQcTkF87Xi5dQ0RsbJn4juP7x9XkCmDgDtu6fFAu6A0Bj6I16e+SpYJDbA3xBQuTnfIVQzi4DdNQ+joQ==",
   "success": true,
-  "projectFilePath": "D:\\BS23\\nopCommerce_v1\\Plugins\\Nop.Plugin.Widgets.Book\\Nop.Plugin.Widgets.BookTracker.csproj",
+  "projectFilePath": "D:\\BS23\\Nop\\nopCommerce-Prev\\Plugins\\Nop.Plugin.Widgets.Book\\Nop.Plugin.Widgets.BookTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BS1054\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\BS1054\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
